@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TikTok Shop 성과 대시보드</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header class="header">
+    <div class="header-content">
+      <div>
+        <h1 class="header-title">TikTok Shop Affiliate</h1>
+        <p class="header-subtitle">성과 분석 대시보드 — Entropy Makeup</p>
+      </div>
+      <div class="header-right">
+        <button class="refresh-btn" id="refresh-btn" onclick="loadData()">↻ 새로고침</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div id="status-msg" class="status-msg" style="display:none"></div>
+
+    <div class="cards-grid">
+      <div class="card">
+        <p class="card-label">총 Affiliate GMV</p>
+        <p class="card-value" id="total-gmv">—</p>
+      </div>
+      <div class="card">
+        <p class="card-label">총 판매량</p>
+        <p class="card-value" id="total-sales">—</p>
+      </div>
+      <div class="card">
+        <p class="card-label">총 노출수</p>
+        <p class="card-value" id="total-impressions">—</p>
+      </div>
+      <div class="card">
+        <p class="card-label">평균 CTR</p>
+        <p class="card-value" id="avg-ctr">—</p>
+      </div>
+      <div class="card">
+        <p class="card-label">참여 크리에이터</p>
+        <p class="card-value" id="total-creators">—</p>
+      </div>
+      <div class="card">
+        <p class="card-label">총 예상 커미션</p>
+        <p class="card-value" id="total-commission">—</p>
+      </div>
+    </div>
+
+    <div class="charts-grid">
+      <div class="chart-card">
+        <h2 class="chart-title">크리에이터별 GMV Top 10</h2>
+        <div class="chart-container">
+          <canvas id="gmv-chart"></canvas>
+        </div>
+      </div>
+      <div class="chart-card">
+        <h2 class="chart-title">노출수 vs GMV (버블 크기 = 판매량)</h2>
+        <div class="chart-container">
+          <canvas id="scatter-chart"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <div class="table-card">
+      <h2 class="chart-title">전체 성과 리포트</h2>
+      <div class="table-wrapper">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>순위</th>
+              <th>크리에이터</th>
+              <th>게시일</th>
+              <th>Aff. GMV</th>
+              <th>Video GMV</th>
+              <th>판매량</th>
+              <th>노출수</th>
+              <th>CTR</th>
+              <th>예상 커미션</th>
+              <th>영상</th>
+            </tr>
+          </thead>
+          <tbody id="table-body">
+            <tr><td colspan="10" class="loading-cell">데이터 로딩 중...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>Entropy Makeup • TikTok Shop Affiliate • <span id="last-updated">—</span></p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
