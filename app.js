@@ -117,15 +117,12 @@ async function loadData() {
     const gviz = await fetchGviz();
     const { rows } = gviz.table;
 
-    // 기간 추출: 헤더 이전 행에서 "~"가 포함된 셀 탐색
-    for (let i = 0; i < Math.min(5, rows.length); i++) {
-      const periodCell = rows[i].c.find(cell => cell && typeof cell.v === 'string' && cell.v.includes('~'));
-      if (periodCell) {
-        const badge = document.getElementById('period-badge');
-        badge.textContent = periodCell.v.trim();
-        badge.style.display = 'inline-block';
-        break;
-      }
+    // 기간 추출: rows[0].c[1] 위치에서 직접 읽기 (시트 상단 기간 셀)
+    const periodVal = rows[0]?.c?.[1]?.v;
+    if (periodVal != null && String(periodVal).trim().length > 4) {
+      const badge = document.getElementById('period-badge');
+      badge.textContent = String(periodVal).trim();
+      badge.style.display = 'inline-block';
     }
 
     // '크리에이터' 헤더 행 두 개 찾기
