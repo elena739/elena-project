@@ -1,7 +1,7 @@
 const SHEET_ID = '156_G9dj52ZVRLth8H1gI4Af5xQCaRIEYtp-nPiUtDEI';
 
 let gmvChart = null;
-let scatterChart = null;
+let impChart = null;
 
 function parseNum(val) {
   if (val === null || val === undefined) return 0;
@@ -51,6 +51,38 @@ function fetchGviz() {
   });
 }
 
+function buildColIdx(headerRow) {
+  const colIdx = {};
+  headerRow.c.forEach((cell, i) => {
+    if (cell && cell.v != null) colIdx[String(cell.v).trim()] = i;
+  });
+  return colIdx;
+}
+
+function parseTableRows(rows, startIdx, endIdx, colIdx) {
+  function getVal(row, label) {
+    const i = colIdx[label];
+    if (i === undefined) return null;
+    const cell = row.c[i];
+    if (!cell) return null;
+    if (typeof cell.v === 'string' && cell.v.startsWith('Date(')) return cell.f || cell.v;
+    return cell.v;
+  }
+  return rows.slice(startIdx, endIdx)
+    .map(row => ({
+      creator:     getVal(row, '크리에이터'),
+      date:        getVal(row, '게시일'),
+      affGmv:      parseNum(getVal(row, 'Aff. GMV ($)')),
+      videoGmv:    parseNum(getVal(row, 'Video GMV ($)')),
+      sales:       parseNum(getVal(row, '판매량')),
+      impressions: parseNum(getVal(row, 'Impressions')),
+      ctr:         parseNum(getVal(row, 'CTR (%)')),
+      commission:  parseNum(getVal(row, 'Est. Comm ($)')),
+      link:        getVal(row, '영상 링크'),
+    }))
+    .filter(r => r.creator && typeof r.creator === 'string' && r.creator !== '크리에이터');
+}
+
 async function loadData() {
   const btn = document.getElementById('refresh-btn');
   btn.disabled = true;
@@ -61,60 +93,42 @@ async function loadData() {
     const gviz = await fetchGviz();
     const { rows } = gviz.table;
 
-    // '크리에이터' 텍스트가 있는 행을 동적으로 찾아 헤더 행으로 사용
-    let headerRowIdx = -1;
+    // 시트 내 두 테이블의 헤더 행을 모두 찾음 (각각 컬럼 순서가 다름)
+    const headerIdxs = [];
     for (let i = 0; i < rows.length; i++) {
       if (rows[i].c.some(cell => cell && String(cell.v) === '크리에이터')) {
-        headerRowIdx = i;
-        break;
+        headerIdxs.push(i);
       }
     }
 
-    // 디버그: 헤더를 못 찾으면 전체 row 구조를 에러 메시지에 포함
-    if (headerRowIdx === -1) {
-      const preview = rows.slice(0, 5).map((r, i) =>
-        `row[${i}]: ${r.c.filter(c => c && c.v != null).map(c => JSON.stringify(c.v)).join(', ')}`
-      ).join('\n');
-      throw new Error(`헤더 행을 찾을 수 없습니다.\n\n${preview}`);
+    if (headerIdxs.length < 2) {
+      throw new Error(`헤더 행이 2개 필요합니다. 감지된 개수: ${headerIdxs.length}`);
     }
 
-    const colIdx = {};
-    rows[headerRowIdx].c.forEach((cell, i) => {
-      if (cell && cell.v != null) colIdx[String(cell.v).trim()] = i;
-    });
+    const [impHeaderIdx, gmvHeaderIdx] = headerIdxs;
 
-    function getVal(row, label) {
-      const i = colIdx[label];
-      if (i === undefined) return null;
-      const cell = row.c[i];
-      if (!cell) return null;
-      if (typeof cell.v === 'string' && cell.v.startsWith('Date(')) return cell.f || cell.v;
-      return cell.v;
+    // Table 1 (Impression Top 10): impHeaderIdx+1 ~ gmvHeaderIdx
+    const impColIdx = buildColIdx(rows[impHeaderIdx]);
+    const impRecords = parseTableRows(rows, impHeaderIdx + 1, gmvHeaderIdx, impColIdx);
+
+    // Table 2 (GMV Top 10): gmvHeaderIdx+1 ~ end
+    const gmvColIdx = buildColIdx(rows[gmvHeaderIdx]);
+    const gmvRecords = parseTableRows(rows, gmvHeaderIdx + 1, rows.length, gmvColIdx);
+
+    if (!gmvRecords.length && !impRecords.length) {
+      throw new Error('레코드가 없습니다.');
     }
 
-    const records = rows.slice(headerRowIdx + 1)
-      .map(row => ({
-        creator:     getVal(row, '크리에이터'),
-        date:        getVal(row, '게시일'),
-        affGmv:      parseNum(getVal(row, 'Aff. GMV ($)')),
-        videoGmv:    parseNum(getVal(row, 'Video GMV ($)')),
-        sales:       parseNum(getVal(row, '판매량')),
-        impressions: parseNum(getVal(row, 'Impressions')),
-        ctr:         parseNum(getVal(row, 'CTR (%)')),
-        commission:  parseNum(getVal(row, 'Est. Comm ($)')),
-        link:        getVal(row, '영상 링크'),
-      }))
-      .filter(r => r.creator && r.affGmv > 0);
+    // KPI 카드용: 두 테이블 합산, 중복 크리에이터는 GMV 테이블 우선
+    const creatorMap = new Map();
+    for (const r of impRecords) creatorMap.set(r.creator, r);
+    for (const r of gmvRecords) creatorMap.set(r.creator, r);
+    const allRecords = [...creatorMap.values()];
 
-    if (!records.length) {
-      const colKeys = Object.keys(colIdx).join(', ');
-      throw new Error(`레코드가 없습니다. 감지된 컬럼: [${colKeys}]`);
-    }
-
-    renderCards(records);
-    renderGmvChart(records);
-    renderScatterChart(records);
-    renderTable(records);
+    renderCards(allRecords);
+    renderGmvChart(gmvRecords);
+    renderImpChart(impRecords);
+    renderTable(gmvRecords, impRecords);
 
     document.getElementById('last-updated').textContent =
       '마지막 업데이트: ' + new Date().toLocaleString('ko-KR');
@@ -183,25 +197,21 @@ function renderGmvChart(records) {
   });
 }
 
-function renderScatterChart(records) {
-  if (scatterChart) scatterChart.destroy();
+function renderImpChart(records) {
+  const top = [...records].sort((a, b) => b.impressions - a.impressions).slice(0, 10);
+  if (impChart) impChart.destroy();
 
-  const points = records.map(r => ({
-    x: r.impressions / 1000,
-    y: r.affGmv,
-    r: Math.max(4, Math.sqrt(r.sales) * 3),
-    creator: r.creator,
-    sales: r.sales,
-  }));
-
-  scatterChart = new Chart(document.getElementById('scatter-chart'), {
-    type: 'bubble',
+  impChart = new Chart(document.getElementById('scatter-chart'), {
+    type: 'bar',
     data: {
+      labels: top.map(r => r.creator),
       datasets: [{
-        data: points,
-        backgroundColor: 'rgba(234,179,8,0.45)',
-        borderColor: 'rgba(234,179,8,0.9)',
-        borderWidth: 1,
+        data: top.map(r => r.impressions),
+        backgroundColor: top.map((_, i) =>
+          i === 0 ? 'rgba(234,179,8,1)' : 'rgba(234,179,8,0.5)'
+        ),
+        borderRadius: 6,
+        borderSkipped: false,
       }],
     },
     options: {
@@ -209,24 +219,15 @@ function renderScatterChart(records) {
       maintainAspectRatio: false,
       plugins: {
         legend: { display: false },
-        tooltip: {
-          callbacks: {
-            label: ctx => {
-              const d = ctx.raw;
-              return [d.creator, `노출수: ${ctx.parsed.x.toFixed(1)}K`, `GMV: $${ctx.parsed.y.toFixed(2)}`, `판매량: ${d.sales}개`];
-            }
-          }
-        }
+        tooltip: { callbacks: { label: ctx => `노출수: ${fmtK(ctx.raw)}` } }
       },
       scales: {
         x: {
-          title: { display: true, text: '노출수 (K)', color: '#64748b' },
-          ticks: { color: '#94a3b8', callback: v => `${v}K` },
+          ticks: { color: '#94a3b8', maxRotation: 35, font: { size: 11 } },
           grid: { color: 'rgba(255,255,255,0.04)' }
         },
         y: {
-          title: { display: true, text: 'Aff. GMV ($)', color: '#64748b' },
-          ticks: { color: '#94a3b8', callback: v => `$${v}` },
+          ticks: { color: '#94a3b8', callback: v => fmtK(v) },
           grid: { color: 'rgba(255,255,255,0.04)' }
         }
       }
@@ -234,8 +235,11 @@ function renderScatterChart(records) {
   });
 }
 
-function renderTable(records) {
-  const sorted = [...records].sort((a, b) => b.affGmv - a.affGmv);
+function renderTable(gmvRecords, impRecords) {
+  // GMV Top 10 먼저, 이후 Impression Top 10에만 있는 크리에이터 추가
+  const gmvCreators = new Set(gmvRecords.map(r => r.creator));
+  const impOnly = impRecords.filter(r => !gmvCreators.has(r.creator));
+  const sorted = [...gmvRecords, ...impOnly];
   document.getElementById('table-body').innerHTML = sorted.map((r, i) => `
     <tr>
       <td class="rank">${i + 1}</td>
