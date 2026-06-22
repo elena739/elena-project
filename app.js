@@ -26,7 +26,6 @@ async function loadData() {
   document.getElementById('status-msg').style.display = 'none';
 
   try {
-    // headers=0 으로 전체 rows를 가져온 뒤, row[2]에서 컬럼명을 직접 읽음
     const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&headers=0`;
     const res = await fetch(url);
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
@@ -37,10 +36,25 @@ async function loadData() {
     const gviz = JSON.parse(text.slice(start, end));
     const { rows } = gviz.table;
 
-    // Row 2 (index 2) = 실제 컬럼 헤더행
-    const headerRow = rows[2];
+    // '크리에이터' 텍스트가 있는 행을 동적으로 찾아 헤더 행으로 사용
+    let headerRowIdx = -1;
+    for (let i = 0; i < rows.length; i++) {
+      if (rows[i].c.some(cell => cell && String(cell.v) === '크리에이터')) {
+        headerRowIdx = i;
+        break;
+      }
+    }
+
+    // 디버그: 헤더를 못 찾으면 전체 row 구조를 에러 메시지에 포함
+    if (headerRowIdx === -1) {
+      const preview = rows.slice(0, 5).map((r, i) =>
+        `row[${i}]: ${r.c.filter(c => c && c.v != null).map(c => JSON.stringify(c.v)).join(', ')}`
+      ).join('\n');
+      throw new Error(`헤더 행을 찾을 수 없습니다.\n\n${preview}`);
+    }
+
     const colIdx = {};
-    headerRow.c.forEach((cell, i) => {
+    rows[headerRowIdx].c.forEach((cell, i) => {
       if (cell && cell.v != null) colIdx[String(cell.v).trim()] = i;
     });
 
@@ -53,8 +67,7 @@ async function loadData() {
       return cell.v;
     }
 
-    // 실제 데이터는 row 3(index 3)부터
-    const records = rows.slice(3)
+    const records = rows.slice(headerRowIdx + 1)
       .map(row => ({
         creator:     getVal(row, '크리에이터'),
         date:        getVal(row, '게시일'),
@@ -68,7 +81,10 @@ async function loadData() {
       }))
       .filter(r => r.creator && r.affGmv > 0);
 
-    if (!records.length) throw new Error('데이터를 찾을 수 없습니다.');
+    if (!records.length) {
+      const colKeys = Object.keys(colIdx).join(', ');
+      throw new Error(`레코드가 없습니다. 감지된 컬럼: [${colKeys}]`);
+    }
 
     renderCards(records);
     renderGmvChart(records);
