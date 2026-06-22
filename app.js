@@ -26,7 +26,8 @@ async function loadData() {
   document.getElementById('status-msg').style.display = 'none';
 
   try {
-    const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json`;
+    // headers=0 으로 전체 rows를 가져온 뒤, row[2]에서 컬럼명을 직접 읽음
+    const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&headers=0`;
     const res = await fetch(url);
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const text = await res.text();
@@ -34,10 +35,14 @@ async function loadData() {
     const start = text.indexOf('{');
     const end = text.lastIndexOf('}') + 1;
     const gviz = JSON.parse(text.slice(start, end));
-    const { cols, rows } = gviz.table;
+    const { rows } = gviz.table;
 
+    // Row 2 (index 2) = 실제 컬럼 헤더행
+    const headerRow = rows[2];
     const colIdx = {};
-    cols.forEach((c, i) => { colIdx[c.label] = i; });
+    headerRow.c.forEach((cell, i) => {
+      if (cell && cell.v != null) colIdx[String(cell.v).trim()] = i;
+    });
 
     function getVal(row, label) {
       const i = colIdx[label];
@@ -48,7 +53,8 @@ async function loadData() {
       return cell.v;
     }
 
-    const records = rows
+    // 실제 데이터는 row 3(index 3)부터
+    const records = rows.slice(3)
       .map(row => ({
         creator:     getVal(row, '크리에이터'),
         date:        getVal(row, '게시일'),
