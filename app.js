@@ -19,6 +19,38 @@ function fmtK(n) {
   return String(Math.round(n));
 }
 
+// fetch() 대신 script 태그 JSONP 방식 — CORS 우회
+function fetchGviz() {
+  return new Promise((resolve, reject) => {
+    const cb = '__gvizCb';
+    document.getElementById('__gvizScript')?.remove();
+    delete window[cb];
+
+    const timer = setTimeout(() => {
+      delete window[cb];
+      document.getElementById('__gvizScript')?.remove();
+      reject(new Error('요청 시간 초과'));
+    }, 15000);
+
+    window[cb] = function(data) {
+      clearTimeout(timer);
+      delete window[cb];
+      document.getElementById('__gvizScript')?.remove();
+      resolve(data);
+    };
+
+    const script = document.createElement('script');
+    script.id = '__gvizScript';
+    script.src = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?headers=0&tqx=out:json;responseHandler:${cb}`;
+    script.onerror = () => {
+      clearTimeout(timer);
+      delete window[cb];
+      reject(new Error('Google Sheets 스크립트 로드 실패'));
+    };
+    document.head.appendChild(script);
+  });
+}
+
 async function loadData() {
   const btn = document.getElementById('refresh-btn');
   btn.disabled = true;
@@ -26,14 +58,7 @@ async function loadData() {
   document.getElementById('status-msg').style.display = 'none';
 
   try {
-    const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&headers=0`;
-    const res = await fetch(url);
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const text = await res.text();
-
-    const start = text.indexOf('{');
-    const end = text.lastIndexOf('}') + 1;
-    const gviz = JSON.parse(text.slice(start, end));
+    const gviz = await fetchGviz();
     const { rows } = gviz.table;
 
     // '크리에이터' 텍스트가 있는 행을 동적으로 찾아 헤더 행으로 사용
