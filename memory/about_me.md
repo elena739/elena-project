@@ -1,5 +1,5 @@
 ---
-name: user-profile
+name: about-me
 description: "Elena의 직업, 업무 방향성, 개인 업무 스타일 및 협업 방식"
 metadata: 
   node_type: memory
