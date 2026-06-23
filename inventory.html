@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entropy TikTok 재고 현황</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:        #0f172a;
+      --surface:   #1e293b;
+      --border:    #334155;
+      --text:      #f1f5f9;
+      --muted:     #94a3b8;
+      --accent:    #6366f1;
+      --accent-dim:rgba(99,102,241,0.22);
+      --green:     #22c55e;
+      --yellow:    #eab308;
+      --red:       #ef4444;
+      --green-bg:  rgba(34,197,94,0.1);
+      --green-bd:  rgba(34,197,94,0.3);
+      --yellow-bg: rgba(234,179,8,0.1);
+      --yellow-bd: rgba(234,179,8,0.3);
+      --red-bg:    rgba(239,68,68,0.1);
+      --red-bd:    rgba(239,68,68,0.3);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    /* ── Alert strip ── */
+    .alert-strip {
+      background: rgba(239,68,68,0.07);
+      border-bottom: 1px solid rgba(239,68,68,0.18);
+      padding: 0.5rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .alert-strip::-webkit-scrollbar { display: none; }
+
+    .alert-eyebrow {
+      font-size: 0.63rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--red);
+      text-transform: uppercase;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .alert-sep {
+      width: 1px; height: 13px;
+      background: rgba(239,68,68,0.28);
+      flex-shrink: 0;
+    }
+
+    .alert-pills { display: flex; gap: 0.45rem; flex-shrink: 0; }
+
+    .alert-pill {
+      background: rgba(239,68,68,0.1);
+      border: 1px solid rgba(239,68,68,0.22);
+      border-radius: 4px;
+      padding: 0.18rem 0.6rem;
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: #fca5a5;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .alert-pill .dot-sep { color: rgba(252,165,165,0.45); }
+
+    /* ── Header ── */
+    .header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 1.1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .header-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .header-title { font-size: 0.95rem; font-weight: 700; letter-spacing: -0.01em; }
+    .header-sub   { font-size: 0.71rem; color: var(--muted); margin-top: 1px; }
+
+    .header-right { display: flex; align-items: center; gap: 0.75rem; }
+
+    .status-pill {
+      font-size: 0.71rem;
+      font-weight: 600;
+      padding: 0.28rem 0.75rem;
+      border-radius: 20px;
+      color: var(--accent);
+      background: rgba(99,102,241,0.12);
+      border: 1px solid rgba(99,102,241,0.25);
+    }
+
+    .back-link { font-size: 0.77rem; color: var(--muted); text-decoration: none; }
+    .back-link:hover { color: var(--text); }
+
+    /* ── Container ── */
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 1.4rem 2rem 3rem;
+    }
+
+    /* ── Summary ── */
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.75rem;
+      margin-bottom: 1.4rem;
+    }
+
+    @media (max-width: 680px) { .summary-grid { grid-template-columns: repeat(2, 1fr); } }
+
+    .summary-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem 1.2rem;
+    }
+
+    .summary-card.c-ok  { border-color: var(--green-bd); }
+    .summary-card.c-low { border-color: var(--yellow-bd); }
+    .summary-card.c-out { border-color: var(--red-bd); }
+
+    .s-label {
+      font-size: 0.62rem;
+      color: var(--muted);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.4rem;
+    }
+
+    .s-val {
+      font-size: 1.85rem;
+      font-weight: 700;
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .s-val.ok  { color: var(--green); }
+    .s-val.low { color: var(--yellow); }
+    .s-val.out { color: var(--red); }
+
+    /* ── Filters ── */
+    .filter-bar {
+      display: flex;
+      gap: 0.4rem;
+      margin-bottom: 1.4rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      padding: 0.38rem 0.85rem;
+      border-radius: 6px;
+      font-size: 0.77rem;
+      font-weight: 500;
+      cursor: pointer;
+      font-family: inherit;
+      transition: border-color 0.12s, color 0.12s;
+    }
+    .filter-btn:hover { border-color: rgba(99,102,241,0.5); color: var(--text); }
+    .filter-btn.active {
+      background: rgba(99,102,241,0.11);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* ── Category section ── */
+    .cat-section { margin-bottom: 1.75rem; }
+
+    .cat-header {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .cat-label {
+      font-size: 0.61rem;
+      font-weight: 600;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .cat-dots { display: flex; gap: 3px; align-items: center; }
+    .hdot { width: 5px; height: 5px; border-radius: 50%; }
+    .cat-line { flex: 1; height: 1px; background: var(--border); }
+
+    /* ── Product grid ── */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+      gap: 0.7rem;
+    }
+
+    @media (max-width: 460px) { .products-grid { grid-template-columns: 1fr; } }
+
+    .product-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .product-card.has-out { border-color: rgba(239,68,68,0.38); }
+    .product-card.has-low:not(.has-out) { border-color: rgba(234,179,8,0.32); }
+
+    .product-header {
+      padding: 0.8rem 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      border-bottom: 1px solid var(--border);
+      gap: 0.5rem;
+    }
+
+    .product-name { font-size: 0.8rem; font-weight: 600; letter-spacing: -0.01em; line-height: 1.3; }
+    .product-meta { font-size: 0.65rem; color: var(--muted); white-space: nowrap; flex-shrink: 0; }
+
+    /* ── SKU table ── */
+    .sku-table { width: 100%; border-collapse: collapse; }
+
+    .sku-table th {
+      padding: 0.38rem 0.85rem;
+      font-size: 0.6rem;
+      font-weight: 500;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      text-align: right;
+      border-bottom: 1px solid rgba(51,65,85,0.4);
+      white-space: nowrap;
+    }
+
+    .sku-table th:first-child { text-align: left; }
+    .sku-table th.th-bar { width: 90px; padding-left: 0.3rem; }
+
+    .sku-table td {
+      padding: 0.52rem 0.85rem;
+      text-align: right;
+      border-bottom: 1px solid rgba(51,65,85,0.18);
+      font-variant-numeric: tabular-nums;
+      font-size: 0.79rem;
+    }
+
+    .sku-table td:first-child { text-align: left; font-weight: 500; }
+    .sku-table td.td-bar { text-align: left; padding-left: 0.3rem; padding-right: 0.2rem; }
+    .sku-table td.td-avail { color: var(--muted); }
+    .sku-table td.td-lock  { color: rgba(148,163,184,0.45); }
+
+    .sku-table tr:last-child td { border-bottom: none; }
+    .sku-table tbody tr:hover td { background: rgba(255,255,255,0.018); }
+
+    /* ── Mini bar ── */
+    .mini-bar {
+      width: 80px;
+      height: 5px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 3px;
+      overflow: hidden;
+      display: flex;
+      margin-top: 1px;
+    }
+
+    .bar-avail { height: 100%; background: var(--accent); border-radius: 3px 0 0 3px; }
+    .bar-lock  { height: 100%; background: var(--accent-dim); }
+    .bar-out   {
+      width: 100%; height: 100%;
+      background: repeating-linear-gradient(
+        -45deg,
+        rgba(239,68,68,0.32) 0px, rgba(239,68,68,0.32) 2px,
+        transparent 2px, transparent 5px
+      );
+    }
+
+    /* ── Status badges ── */
+    .badge {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 600;
+      padding: 0.14rem 0.42rem;
+      border-radius: 8px;
+      white-space: nowrap;
+    }
+
+    .b-ok  { color: var(--green);  background: var(--green-bg); }
+    .b-low { color: var(--yellow); background: var(--yellow-bg); }
+    .b-out { color: var(--red);    background: var(--red-bg); }
+
+    /* ── Empty state ── */
+    .empty {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 3rem 2rem;
+      text-align: center;
+      color: var(--muted);
+      grid-column: 1 / -1;
+    }
+    .empty-title { font-size: 0.92rem; font-weight: 600; color: var(--text); margin: 0.5rem 0 0.35rem; }
+    .empty-desc  { font-size: 0.8rem; line-height: 1.6; }
+
+    /* ── Footer ── */
+    .footer {
+      text-align: center;
+      padding: 1.4rem;
+      color: var(--muted);
+      font-size: 0.7rem;
+      border-top: 1px solid var(--border);
+      margin-top: 0.5rem;
+    }
+
+    @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+  </style>
+</head>
+<body>
+
+<div class="alert-strip" id="alert-strip" style="display:none">
+  <span class="alert-eyebrow">즉시 재입고</span>
+  <div class="alert-sep"></div>
+  <div class="alert-pills" id="alert-pills"></div>
+</div>
+
+<header class="header">
+  <div class="header-inner">
+    <div>
+      <div class="header-title">📦 ENTROPY TikTok 재고 현황</div>
+      <div class="header-sub" id="last-updated">데이터 로딩 중...</div>
+    </div>
+    <div class="header-right">
+      <span class="status-pill" id="status-pill">–</span>
+      <a href="index.html" class="back-link">← 성과 대시보드</a>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+  <div class="summary-grid">
+    <div class="summary-card">
+      <div class="s-label">전체 SKU</div>
+      <div class="s-val" id="s-total">–</div>
+    </div>
+    <div class="summary-card c-ok">
+      <div class="s-label">충분</div>
+      <div class="s-val ok" id="s-ok">–</div>
+    </div>
+    <div class="summary-card c-low">
+      <div class="s-label">재고 부족</div>
+      <div class="s-val low" id="s-low">–</div>
+    </div>
+    <div class="summary-card c-out">
+      <div class="s-label">품절</div>
+      <div class="s-val out" id="s-out">–</div>
+    </div>
+  </div>
+
+  <div class="filter-bar">
+    <button class="filter-btn active" data-f="all"       onclick="setFilter('all')">전체</button>
+    <button class="filter-btn"        data-f="attention" onclick="setFilter('attention')">⚠️ 주의 필요</button>
+    <button class="filter-btn"        data-f="out"       onclick="setFilter('out')">🔴 품절만</button>
+  </div>
+
+  <div id="content"></div>
+</main>
+
+<footer class="footer">
+  매일 오전 9시 TikTok Seller Center 기준 Cowork 자동 업데이트 · ENTROPY Makeup
+</footer>
+
+<script>
+const CATS = [
+  { key: "lip",  label: "LIP"       },
+  { key: "face", label: "FACE"      },
+  { key: "brow", label: "BROW & EYE"},
+  { key: "body", label: "BODY"      },
+];
+
+const CAT_MAP = {
+  "charm tint": "lip", "tulle gloss": "lip", "charm tint duo": "lip", "lip duo": "lip",
+  "dough cheek": "face", "foundation": "face", "spatula": "face",
+  "eyebrow": "brow", "brow finisher": "brow", "brow sculpture": "brow", "tough brow": "brow",
+  "glow serum": "body", "body highlight": "body", "cool stick": "body",
+};
+
+function inferCategory(name) {
+  const n = name.toLowerCase();
+  for (const [k, v] of Object.entries(CAT_MAP)) {
+    if (n.includes(k)) return v;
+  }
+  return "lip";
+}
+
+let DATA = null;
+let currentFilter = 'all';
+
+function st(s) {
+  return s.status || (s.total === 0 ? 'out' : s.alert >= 10 ? 'low' : 'ok');
+}
+
+function setFilter(f) {
+  currentFilter = f;
+  document.querySelectorAll('.filter-btn').forEach(b =>
+    b.classList.toggle('active', b.dataset.f === f));
+  renderContent();
+}
+
+function mkBar(s, maxTotal) {
+  if (st(s) === 'out') return `<div class="mini-bar"><div class="bar-out"></div></div>`;
+  const cap = Math.max(maxTotal, 1);
+  const aW = Math.round((s.available / cap) * 80);
+  const lW = Math.round((s.locked    / cap) * 80);
+  return `<div class="mini-bar">
+    <div class="bar-avail" style="width:${aW}px"></div>
+    <div class="bar-lock"  style="width:${lW}px"></div>
+  </div>`;
+}
+
+function renderSummary() {
+  const all = DATA.products || [];
+  let total = 0, ok = 0, low = 0, out = 0;
+  all.forEach(p => p.skus.forEach(s => {
+    total++;
+    const v = st(s);
+    if (v === 'out') out++;
+    else if (v === 'low') low++;
+    else ok++;
+  }));
+
+  document.getElementById('s-total').textContent = total;
+  document.getElementById('s-ok').textContent    = ok;
+  document.getElementById('s-low').textContent   = low;
+  document.getElementById('s-out').textContent   = out;
+  document.getElementById('last-updated').textContent = DATA.updatedAt ? `기준일: ${DATA.updatedAt}` : '업데이트 대기 중';
+  document.getElementById('status-pill').textContent =
+    out  > 0 ? `🔴 품절 ${out}개`  :
+    low  > 0 ? `🟡 부족 ${low}개` : '✅ 전체 충분';
+
+  const outItems = [];
+  all.forEach(p => p.skus.forEach(s => {
+    if (st(s) === 'out') outItems.push({ p: p.name, c: s.color });
+  }));
+
+  const strip = document.getElementById('alert-strip');
+  if (outItems.length === 0) { strip.style.display = 'none'; return; }
+
+  strip.style.display = 'flex';
+  document.getElementById('alert-pills').innerHTML = outItems.map(x => {
+    const short = x.p
+      .replace(/^ENTROPY MAKEUP /i, '')
+      .replace(/^ENTROPY /i, '')
+      .replace(/^\[ENTROPY.*?\]\s*/i, '');
+    return `<div class="alert-pill">${short}<span class="dot-sep">·</span>${x.c}</div>`;
+  }).join('');
+}
+
+function renderContent() {
+  if (!DATA) return;
+  const products = (DATA.products || []).map(p => ({
+    ...p,
+    category: p.category || inferCategory(p.name)
+  }));
+
+  let visible = products;
+  if (currentFilter === 'attention') visible = products.filter(p => p.skus.some(s => st(s) !== 'ok'));
+  if (currentFilter === 'out')       visible = products.filter(p => p.skus.some(s => st(s) === 'out'));
+
+  if (visible.length === 0) {
+    document.getElementById('content').innerHTML =
+      `<div class="empty">
+        <div style="font-size:2rem">✅</div>
+        <div class="empty-title">해당 조건 없음</div>
+        <div class="empty-desc">선택한 필터에 맞는 상품이 없습니다.</div>
+      </div>`;
+    return;
+  }
+
+  const html = CATS.map(cat => {
+    const catProds = visible.filter(p => p.category === cat.key);
+    if (catProds.length === 0) return '';
+
+    const statuses = catProds.flatMap(p => p.skus.map(s => st(s)));
+    const dots = [
+      statuses.includes('out') ? `<div class="hdot" style="background:var(--red)"></div>`    : '',
+      statuses.includes('low') ? `<div class="hdot" style="background:var(--yellow)"></div>` : '',
+      statuses.some(s => s === 'ok') ? `<div class="hdot" style="background:var(--green)"></div>` : '',
+    ].join('');
+
+    const cards = catProds.map(p => {
+      const hasOut = p.skus.some(s => st(s) === 'out');
+      const hasLow = p.skus.some(s => st(s) === 'low');
+      const cls    = hasOut ? 'has-out' : hasLow ? 'has-low' : '';
+      const maxT   = Math.max(...p.skus.map(s => s.total), 1);
+
+      const rows = p.skus.map(s => {
+        const status = st(s);
+        const badge  =
+          status === 'out' ? '<span class="badge b-out">품절</span>' :
+          status === 'low' ? '<span class="badge b-low">부족</span>' :
+                             '<span class="badge b-ok">충분</span>';
+        return `<tr>
+          <td>${s.color}</td>
+          <td class="td-bar">${mkBar(s, maxT)}</td>
+          <td>${s.total.toLocaleString()}</td>
+          <td class="td-avail">${s.available.toLocaleString()}</td>
+          <td class="td-lock">${s.locked.toLocaleString()}</td>
+          <td>${badge}</td>
+        </tr>`;
+      }).join('');
+
+      return `<div class="product-card ${cls}">
+        <div class="product-header">
+          <div class="product-name">${p.name}</div>
+          <div class="product-meta">${p.skus.length} SKU</div>
+        </div>
+        <table class="sku-table">
+          <thead><tr>
+            <th>컬러</th>
+            <th class="th-bar"></th>
+            <th>재고</th>
+            <th>가용</th>
+            <th>잠김</th>
+            <th>상태</th>
+          </tr></thead>
+          <tbody>${rows}</tbody>
+        </table>
+      </div>`;
+    }).join('');
+
+    return `<div class="cat-section">
+      <div class="cat-header">
+        <span class="cat-label">${cat.label}</span>
+        <div class="cat-dots">${dots}</div>
+        <div class="cat-line"></div>
+      </div>
+      <div class="products-grid">${cards}</div>
+    </div>`;
+  }).join('');
+
+  document.getElementById('content').innerHTML = html;
+}
+
+async function loadData() {
+  try {
+    const r = await fetch('inventory-data.json?t=' + Date.now());
+    DATA = await r.json();
+    if (!DATA.products || DATA.products.length === 0) throw new Error('empty');
+    renderSummary();
+    renderContent();
+  } catch {
+    document.getElementById('content').innerHTML =
+      `<div class="empty">
+        <div style="font-size:2rem">📭</div>
+        <div class="empty-title">아직 데이터가 없습니다</div>
+        <div class="empty-desc">매일 오전 9시 Cowork 자동 작업이 실행되면<br>재고 현황이 여기 표시됩니다.</div>
+      </div>`;
+    document.getElementById('last-updated').textContent = '업데이트 대기 중';
+  }
+}
+
+loadData();
+</script>
+</body>
+</html>
