@@ -1,14 +1,13 @@
-// TikTok Seller Center 재고 자동 스크래퍼 (Playwright)
+// TikTok Seller Center 재고 자동 스크래퍼 (Playwright + 기존 Chrome 세션)
 const { chromium } = require('playwright');
 const fs = require('fs');
 const path = require('path');
 
 // ─── 설정 ────────────────────────────────────────────────────────────────────
-// GitHub Secrets 또는 로컬 .env에서 읽음
-const SELLER_URL = process.env.TIKTOK_SELLER_URL || 'https://seller-us.tiktok.com';
-const EMAIL      = process.env.TIKTOK_EMAIL;
-const PASSWORD   = process.env.TIKTOK_PASSWORD;
-const OUTPUT     = path.join(__dirname, '..', 'inventory-data.json');
+const SELLER_URL   = process.env.TIKTOK_SELLER_URL || 'https://seller-us.tiktok.com';
+const CHROME_PROFILE = process.env.CHROME_PROFILE ||
+  path.join(process.env.LOCALAPPDATA || '', 'Google', 'Chrome', 'User Data');
+const OUTPUT = path.join(__dirname, '..', 'inventory-data.json');
 
 // inventory.html 의 CAT_MAP 과 동일하게 유지
 const CAT_MAP = {
@@ -33,12 +32,10 @@ function transformProduct(p) {
 
   const skuList = p.sku_list || p.skus || p.variants || [];
   const skus = skuList.map(sku => {
-    // 컬러/옵션명 추출
     const specs = sku.sku_spec_list || sku.spec_list || sku.options || [];
     const color = specs.map(s => s.spec_value || s.value || s.name).join(' / ')
                   || sku.sku_name || sku.name || 'Default';
 
-    // 재고 수량 추출 (TikTok API 응답 구조 여러 형태 대응)
     const si        = sku.stock_info || sku.inventory || {};
     const available = si.available_stock    ?? si.available_quantity    ?? sku.available_stock ?? sku.stock ?? 0;
     const locked    = si.reserved_stock     ?? si.locked_quantity       ?? sku.reserved        ?? 0;
@@ -59,95 +56,66 @@ function transformProduct(p) {
 
 // ─── 메인 ────────────────────────────────────────────────────────────────────
 async function main() {
-  if (!EMAIL || !PASSWORD) {
-    console.error('오류: TIKTOK_EMAIL, TIKTOK_PASSWORD 환경 변수를 설정해주세요');
-    process.exit(1);
-  }
+  console.log('Chrome 프로필 경로:', CHROME_PROFILE);
 
-  const browser = await chromium.launch({
+  // 기존 Chrome 로그인 세션을 그대로 사용 (launchPersistentContext)
+  // Chrome이 실행 중이면 충돌날 수 있으므로 headless로 별도 실행
+  const context = await chromium.launchPersistentContext(CHROME_PROFILE, {
+    channel: 'chrome',
     headless: true,
-    args: ['--no-sandbox', '--disable-setuid-sandbox'],
+    args: [
+      '--no-sandbox',
+      '--disable-setuid-sandbox',
+      '--disable-blink-features=AutomationControlled',
+      '--profile-directory=Default',
+    ],
   });
 
-  const context = await browser.newContext({
-    userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-    viewport: { width: 1280, height: 900 },
-  });
-
-  // TikTok Seller Center 내부 API 응답 자동 캡처
   const captured = [];
   context.on('response', async (res) => {
     if (res.status() !== 200) return;
     const ct = res.headers()['content-type'] || '';
     if (!ct.includes('application/json')) return;
     const url = res.url();
-    // 상품/재고 관련 API 엔드포인트 패턴
     if (!url.includes('/product') && !url.includes('/inventory')) return;
     try {
       const json = await res.json();
       const products =
-        json?.data?.products        ||
-        json?.data?.product_list    ||
-        json?.result?.products      ||
+        json?.data?.products     ||
+        json?.data?.product_list ||
+        json?.result?.products   ||
         json?.products;
       if (Array.isArray(products) && products.length > 0) {
         captured.push(...products);
         console.log(`  [API 캡처] 상품 ${products.length}개`);
       }
-    } catch { /* non-JSON 응답 무시 */ }
+    } catch {}
   });
 
   const page = await context.newPage();
 
   try {
-    // ── 1. 로그인 ─────────────────────────────────────────────────────────────
-    console.log('1. 로그인 중...');
-    await page.goto(`${SELLER_URL}/account/login`, { waitUntil: 'networkidle', timeout: 30000 });
-    await page.waitForTimeout(2000);
+    // ── 상품 목록 로딩 (로그인 불필요 — 기존 세션 사용) ─────────────────────
+    console.log('상품 목록 불러오는 중...');
+    await page.goto(`${SELLER_URL}/en/product/list?status=2`, {
+      waitUntil: 'networkidle',
+      timeout: 30000,
+    });
 
-    // 이메일 입력
-    // ⚠️ TikTok UI가 업데이트되면 셀렉터 수정 필요
-    const emailSel = [
-      'input[name="email"]',
-      'input[type="email"]',
-      'input[placeholder*="email" i]',
-      'input[placeholder*="Email"]',
-      'input[type="text"]',
-    ].join(', ');
-    await page.waitForSelector(emailSel, { timeout: 15000 });
-    await page.fill(emailSel, EMAIL);
-    await page.fill('input[type="password"]', PASSWORD);
-    await page.click('button[type="submit"]');
-    await page.waitForTimeout(5000);
-
-    // 2FA / 이메일 인증 감지
-    const currentUrl = page.url();
-    if (currentUrl.includes('verify') || currentUrl.includes('otp') || currentUrl.includes('2fa')) {
+    // 로그인 페이지로 리다이렉트됐는지 확인
+    if (page.url().includes('login') || page.url().includes('account')) {
       console.error([
         '',
-        '❌ 2단계 인증(2FA) 또는 이메일 인증 필요',
-        '',
-        '해결 방법:',
-        '  1. 로컬 PC에서 node scripts/login-and-save.js 실행 (추후 추가)',
-        '  2. 생성된 session.json 내용을 GitHub Secret TIKTOK_SESSION 에 등록',
-        '  3. 이후 자동 실행 시 세션 쿠키 재사용',
+        '❌ 세션 만료 — TikTok Seller Center에 다시 로그인되어있지 않습니다.',
+        '   Chrome에서 ' + SELLER_URL + ' 접속 후 로그인 상태 확인해주세요.',
         '',
       ].join('\n'));
       process.exit(1);
     }
 
-    console.log('   로그인 완료 ✓');
-
-    // ── 2. 상품 목록 로딩 ────────────────────────────────────────────────────
-    console.log('2. 상품 목록 불러오는 중...');
-    // status=2: 판매 중인 상품만
-    await page.goto(`${SELLER_URL}/en/product/list?status=2`, {
-      waitUntil: 'networkidle',
-      timeout: 30000,
-    });
     await page.waitForTimeout(5000);
 
-    // 페이지네이션: 다음 페이지 버튼이 있는 동안 클릭 (최대 10페이지)
+    // 페이지네이션: 다음 페이지가 있는 동안 반복 (최대 10페이지)
     for (let pg = 2; pg <= 10; pg++) {
       const nextBtn = page.locator([
         'button[aria-label="next page"]',
@@ -157,34 +125,31 @@ async function main() {
       ].join(', ')).first();
 
       if (!(await nextBtn.isVisible().catch(() => false))) break;
-      const isDisabled = await nextBtn.isDisabled().catch(() => true);
-      if (isDisabled) break;
+      if (await nextBtn.isDisabled().catch(() => true)) break;
 
-      console.log(`   페이지 ${pg} 로딩...`);
+      console.log(`   페이지 ${pg}...`);
       await nextBtn.click();
       await page.waitForTimeout(3000);
     }
 
-    // ── 3. 데이터 처리 ────────────────────────────────────────────────────────
+    // ── 데이터 처리 ───────────────────────────────────────────────────────────
     let products = [];
 
     if (captured.length > 0) {
-      console.log(`3. API 캡처 데이터 변환 중 (${captured.length}개)...`);
+      console.log(`API 데이터 변환 중 (${captured.length}개 상품)...`);
       products = captured.map(transformProduct).filter(Boolean);
     } else {
-      // API 캡처 실패 시 DOM 파싱 fallback
-      console.log('3. DOM 파싱 방식으로 시도 중...');
+      console.log('DOM 파싱으로 대체 중...');
       products = await page.evaluate((catMap) => {
-        // ⚠️ 셀렉터는 실제 TikTok Seller Center 페이지 검사 후 수정
         const rows = document.querySelectorAll(
           '[class*="product-item"], [class*="product-row"], [data-testid*="product"]'
         );
         const result = [];
         rows.forEach(row => {
-          const nameEl  = row.querySelector('[class*="product-name"], [class*="title"], h3, h4');
+          const nameEl = row.querySelector('[class*="product-name"], [class*="title"], h3, h4');
           if (!nameEl) return;
           const name    = nameEl.textContent.trim();
-          const stockEl = row.querySelector('[class*="stock"], [class*="inventory"], [class*="qty"]');
+          const stockEl = row.querySelector('[class*="stock"], [class*="inventory"]');
           const stock   = parseInt(stockEl?.textContent) || 0;
           result.push({
             name,
@@ -198,30 +163,24 @@ async function main() {
     }
 
     if (products.length === 0) {
-      console.error([
-        '❌ 상품 데이터를 가져오지 못했습니다.',
-        '다음을 확인해주세요:',
-        '  - TikTok Seller Center 로그인 성공 여부',
-        '  - TIKTOK_SELLER_URL 값 (예: https://seller-us.tiktok.com)',
-        '  - scripts/scrape-inventory.js 내 DOM 셀렉터 수정 필요 여부',
-      ].join('\n'));
+      console.error('❌ 상품 데이터 없음. TIKTOK_SELLER_URL 또는 셀렉터 확인 필요.');
       process.exit(1);
     }
 
-    // ── 4. 저장 ───────────────────────────────────────────────────────────────
+    // ── 저장 ─────────────────────────────────────────────────────────────────
     const output = {
       updatedAt: new Date().toISOString().slice(0, 10),
       products,
     };
     fs.writeFileSync(OUTPUT, JSON.stringify(output, null, 2), 'utf-8');
-    console.log(`\n✅ 완료: ${products.length}개 상품 저장 → inventory-data.json`);
+    console.log(`\n✅ 완료: ${products.length}개 상품 → inventory-data.json`);
 
   } finally {
-    await browser.close();
+    await context.close();
   }
 }
 
 main().catch(err => {
-  console.error('실행 오류:', err.message);
+  console.error('오류:', err.message);
   process.exit(1);
 });
