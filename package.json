@@ -1,0 +1,10 @@
+{
+  "name": "elena-project",
+  "private": true,
+  "scripts": {
+    "scrape": "node scripts/scrape-inventory.js"
+  },
+  "dependencies": {
+    "playwright": "^1.44.0"
+  }
+}
