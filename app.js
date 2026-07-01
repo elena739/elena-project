@@ -3,9 +3,9 @@ var gmvChart   = null;
 var currentTab = 'weekly';
 var dashData   = null;
 
-// ── Formatters ──
+// ââ Formatters ââ
 function fmtKPI(n) {
-  if (n == null) return '—';
+  if (n == null) return 'â';
   if (n >= 10000) return '$' + (n / 1000).toFixed(1) + 'K';
   if (n >= 1000)  return '$' + (n / 1000).toFixed(2) + 'K';
   return '$' + n.toFixed(2);
@@ -15,7 +15,7 @@ function fmtDollar(n) {
   return '$' + n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 }
 function fmtNum(n) {
-  if (n == null) return '—';
+  if (n == null) return 'â';
   if (n >= 1000) return (n / 1000).toFixed(1) + 'K';
   return n.toLocaleString();
 }
@@ -25,7 +25,7 @@ function fmtViews(n) {
   return String(n);
 }
 
-// ── Tab switch ──
+// ââ Tab switch ââ
 function switchTab(tab) {
   currentTab = tab;
   document.querySelectorAll('.tab').forEach(function(b) {
@@ -34,7 +34,7 @@ function switchTab(tab) {
   if (dashData) renderAll();
 }
 
-// ── Render all ──
+// ââ Render all ââ
 function renderAll() {
   var d = dashData[currentTab];
   if (!d) return;
@@ -52,7 +52,7 @@ function renderAll() {
   renderTable(d.creators);
 }
 
-// ── Bar chart ──
+// ââ Bar chart ââ
 function renderChart(creators) {
   var top5    = creators.slice(0, 5);
   var labels  = top5.map(function(c) { return c.name.replace('@', ''); });
@@ -99,7 +99,7 @@ function renderChart(creators) {
             font: { size: 11 }, color: '#9ca3af',
             callback: function(v) {
               if (v >= 1000) return '$' + (v / 1000).toFixed(0) + 'K';
-              return '$' + v;
+      2       return '$' + v;
             }
           }
         }
@@ -111,28 +111,31 @@ function renderChart(creators) {
   if (sub) sub.textContent = 'Top 5';
 }
 
-// ── Top videos ──
+// ââ Top videos (thumbnail cards) ââ
 function renderVideos(videos) {
   var el = document.getElementById('video-list');
   if (!el) return;
-  var rankClass = ['r1','r2','r3','',''];
+  var gradients = ['vt-g1','vt-g2','vt-g3','vt-g4','vt-g5'];
   var html = '';
   for (var i = 0; i < videos.length; i++) {
     var v  = videos[i];
-    var rc = rankClass[i] || '';
-    html += '<div class="video-item">';
-    html += '<div class="video-rank ' + rc + '">' + (i + 1) + '</div>';
-    html += '<div class="video-info">';
-    html += '<div class="video-title" title="' + v.title + '">' + v.title + '</div>';
-    html += '<div class="video-meta">' + v.creator + ' &nbsp;·&nbsp; ' + fmtViews(v.viewers) + ' views</div>';
+    var g  = gradients[i] || 'vt-g1';
+    html += '<div class="video-card">';
+    html += '<div class="video-thumb ' + g + '">';
+    html += '<div class="video-thumb-rank">' + (i + 1) + '</div>';
+    html += '<div class="video-thumb-play"></div>';
     html += '</div>';
-    html += '<div class="video-gmv">' + fmtDollar(v.gmv) + '</div>';
+    html += '<div class="video-card-body">';
+    html += '<div class="video-card-title" title="' + v.title + '">' + v.title + '</div>';
+    html += '<div class="video-card-meta">' + v.creator + ' Â· ' + fmtViews(v.viewers) + ' views</div>';
+    html += '<div class="video-card-gmv">' + fmtDollar(v.gmv) + '</div>';
+    html += '</div>';
     html += '</div>';
   }
   el.innerHTML = html;
 }
 
-// ── Creator table ──
+// ââ Creator table ââ
 function renderTable(creators) {
   var tbody = document.getElementById('creator-tbody');
   if (!tbody) return;
@@ -143,7 +146,7 @@ function renderTable(creators) {
     var rc  = rankClass[i] || '';
     var commHtml = c.commission != null
       ? fmtDollar(c.commission)
-      : '<span class="null-val">—</span>';
+  2   : '<span class="null-val">â</span>';
     html += '<tr>';
     html += '<td><span class="rank-num ' + rc + '">' + (i + 1) + '</span></td>';
     html += '<td>';
@@ -163,7 +166,7 @@ function renderTable(creators) {
   if (countEl) countEl.textContent = 'Top ' + creators.length;
 }
 
-// ── Load data ──
+// ââ Load data ââ
 function loadData() {
   fetch('performance-data.json?t=' + Date.now())
     .then(function(r) { return r.json(); })
