@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TikTok Shop 성과 대시보드</title>
+  <title>TikTok Shop ì±ê³¼ ëìë³´ë</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
@@ -14,90 +14,122 @@
     <div class="header-content">
       <div>
         <h1 class="header-title">TikTok Shop Affiliate</h1>
-        <p class="header-subtitle">성과 분석 대시보드 — Entropy Makeup</p>
+        <p class="header-subtitle">ì±ê³¼ ë¶ì ëìë³´ë â Entropy Makeup</p>
       </div>
       <div class="header-right">
         <span class="period-badge" id="period-badge" style="display:none"></span>
-        <button class="refresh-btn" id="refresh-btn" onclick="loadData()">↻ 새로고침</button>
+        <button class="refresh-btn" id="refresh-btn" onclick="loadData()">â» ìë¡ê³ ì¹¨</button>
       </div>
     </div>
   </header>
 
   <main class="container">
+
+    <!-- Tab Bar -->
+    <div class="tab-bar">
+      <button class="tab-btn active" data-tab="weekly" onclick="switchTab('weekly')">ì´ë² ì£¼</button>
+      <button class="tab-btn" data-tab="monthly" onclick="switchTab('monthly')">ì´ë² ë¬</button>
+    </div>
+
     <div id="status-msg" class="status-msg" style="display:none"></div>
 
+    <!-- KPI Cards -->
     <div class="cards-grid">
       <div class="card">
-        <p class="card-label">총 Affiliate GMV</p>
-        <p class="card-value" id="total-gmv">—</p>
+        <p class="card-label">ì´ Affiliate GMV</p>
+        <p class="card-value" id="total-gmv">â</p>
       </div>
       <div class="card">
-        <p class="card-label">총 판매량</p>
-        <p class="card-value" id="total-sales">—</p>
+        <p class="card-label">ì´ íë§¤ë</p>
+        <p class="card-value" id="total-sales">â</p>
       </div>
       <div class="card">
-        <p class="card-label">총 노출수</p>
-        <p class="card-value" id="total-impressions">—</p>
+        <p class="card-label">ì´ ë¸ì¶ì</p>
+        <p class="card-value" id="total-impressions">â</p>
       </div>
       <div class="card">
-        <p class="card-label">평균 CTR</p>
-        <p class="card-value" id="avg-ctr">—</p>
+        <p class="card-label">íê·  CTR</p>
+        <p class="card-value" id="avg-ctr">â</p>
       </div>
       <div class="card">
-        <p class="card-label">참여 크리에이터</p>
-        <p class="card-value" id="total-creators">—</p>
+        <p class="card-label">ì°¸ì¬ í¬ë¦¬ìì´í°</p>
+        <p class="card-value" id="total-creators">â</p>
       </div>
       <div class="card">
-        <p class="card-label">총 예상 커미션</p>
-        <p class="card-value" id="total-commission">—</p>
+        <p class="card-label">ì´ ìì ì»¤ë¯¸ì</p>
+        <p class="card-value" id="total-commission">â</p>
       </div>
     </div>
 
+    <!-- GMV Top 5 Spotlight -->
+    <div class="spotlight-section">
+      <div class="section-header">
+        <h2 class="section-title">ð° GMV Top 5 í¬ë¦¬ìì´í°</h2>
+      </div>
+      <div class="top5-grid" id="gmv-top5-row">
+        <!-- rendered by JS -->
+      </div>
+    </div>
+
+    <!-- Impression Top 5 Spotlight -->
+    <div class="spotlight-section">
+      <div class="section-header">
+        <h2 class="section-title">ð ë¸ì¶ì Top 5 í¬ë¦¬ìì´í°</h2>
+      </div>
+      <div class="top5-grid" id="imp-top5-row">
+        <!-- rendered by JS -->
+      </div>
+    </div>
+
+    <!-- Charts -->
     <div class="charts-grid">
       <div class="chart-card">
-        <h2 class="chart-title">크리에이터별 GMV Top 10</h2>
+        <h2 class="chart-title">í¬ë¦¬ìì´í°ë³ GMV Top 10</h2>
         <div class="chart-container">
           <canvas id="gmv-chart"></canvas>
         </div>
       </div>
       <div class="chart-card">
-        <h2 class="chart-title">크리에이터별 Impression Top 10</h2>
+        <h2 class="chart-title">í¬ë¦¬ìì´í°ë³ Impression Top 10</h2>
         <div class="chart-container">
           <canvas id="scatter-chart"></canvas>
         </div>
       </div>
     </div>
 
+    <!-- Full Table -->
     <div class="table-card">
-      <h2 class="chart-title">전체 성과 리포트</h2>
+      <h2 class="chart-title">ì ì²´ ì±ê³¼ ë¦¬í¬í¸</h2>
       <div class="table-wrapper">
         <table class="data-table">
           <thead>
             <tr>
-              <th>순위</th>
-              <th>크리에이터</th>
-              <th>게시일</th>
+              <th>ìì</th>
+              <th>í¬ë¦¬ìì´í°</th>
+              <th>ê²ìì¼</th>
               <th>Aff. GMV</th>
               <th>Video GMV</th>
-              <th>판매량</th>
-              <th>노출수</th>
+              <th>íë§¤ë</th>
+              <th>ë¸ì¶ì</th>
               <th>CTR</th>
-              <th>예상 커미션</th>
-              <th>영상</th>
+              <th>ìì ì»¤ë¯¸ì</th>
+              <th>ìì</th>
             </tr>
           </thead>
           <tbody id="table-body">
-            <tr><td colspan="10" class="loading-cell">데이터 로딩 중...</td></tr>
+            <tr><td colspan="10" class="loading-cell">ë°ì´í° ë¡ë© ì¤...</td></tr>
           </tbody>
         </table>
       </div>
     </div>
+
   </main>
 
   <footer class="footer">
-    <p>Entropy Makeup • TikTok Shop Affiliate • <span id="last-updated">—</span></p>
+    <p>Entropy Makeup â¢ TikTok Shop Affiliate â¢ <span id="last-updated">â</span></p>
   </footer>
 
+  <script src="performance-data.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
