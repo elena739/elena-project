@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Entropy Makeup — Affiliate Dashboard</title>
-  <link rel="stylesheet" href="style.css?v=2">
+  <title>Entropy Makeup â Affiliate Dashboard</title>
+  <link rel="stylesheet" href="style.css?v=3">
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 </head>
 <body>
@@ -20,7 +20,7 @@
           </div>
         </div>
         <div class="header-right">
-          <span class="badge-updated" id="updated-at">Loading…</span>
+          <span class="badge-updated" id="updated-at">Loadingâ¦</span>
         </div>
       </div>
     </header>
@@ -40,48 +40,48 @@
           <div class="kpi-icon icon-gmv">$</div>
           <div class="kpi-info">
             <div class="kpi-label">Affiliate GMV</div>
-            <div class="kpi-value" id="kpi-gmv">—</div>
+            <div class="kpi-value" id="kpi-gmv">â</div>
           </div>
         </div>
         <div class="kpi-card">
           <div class="kpi-icon icon-items">&#9632;</div>
           <div class="kpi-info">
             <div class="kpi-label">Items Sold</div>
-            <div class="kpi-value" id="kpi-items">—</div>
+            <div class="kpi-value" id="kpi-items">â</div>
           </div>
         </div>
         <div class="kpi-card">
           <div class="kpi-icon icon-comm">%</div>
           <div class="kpi-info">
             <div class="kpi-label">Est. Commission</div>
-            <div class="kpi-value" id="kpi-commission">—</div>
+            <div class="kpi-value" id="kpi-commission">â</div>
           </div>
         </div>
         <div class="kpi-card">
           <div class="kpi-icon icon-aff">@</div>
           <div class="kpi-info">
             <div class="kpi-label">Active Affiliates</div>
-            <div class="kpi-value" id="kpi-affiliates">—</div>
+            <div class="kpi-value" id="kpi-affiliates">â</div>
           </div>
         </div>
       </div>
 
-      <div class="two-col">
-        <div class="panel">
-          <div class="panel-header">
-            <h2 class="panel-title">Top Creators by GMV</h2>
-            <span class="panel-sub" id="chart-sub"></span>
-          </div>
-          <div class="chart-container">
-            <canvas id="gmv-chart"></canvas>
-          </div>
+      <div class="panel">
+        <div class="panel-header">
+          <h2 class="panel-title">Top Creators by GMV</h2>
+          <span class="panel-sub" id="chart-sub"></span>
         </div>
-        <div class="panel">
-          <div class="panel-header">
-            <h2 class="panel-title">Top Videos</h2>
-          </div>
-          <div id="video-list" class="video-list"></div>
+        <div class="chart-container">
+          <canvas id="gmv-chart"></canvas>
         </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-header">
+          <h2 class="panel-title">Top Videos</h2>
+          <span class="panel-sub">Top 5 by GMV</span>
+        </div>
+        <div id="video-list" class="video-cards"></div>
       </div>
 
       <div class="panel">
@@ -110,10 +110,10 @@
     </main>
 
     <footer class="footer container">
-      Entropy Makeup &nbsp;&middot;&nbsp; TikTok Affiliate Analytics &nbsp;&middot;&nbsp; Updated <span id="footer-date">—</span>
+      Entropy Makeup &nbsp;&middot;&nbsp; TikTok Affiliate Analytics &nbsp;&middot;&nbsp; Updated <span id="footer-date">â</span>
     </footer>
 
   </div>
-  <script src="app.js?v=2"></script>
+  <script src="app.js?v=3"></script>
 </body>
 </html>
