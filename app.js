@@ -3,9 +3,9 @@ var gmvChart   = null;
 var currentTab = 'weekly';
 var dashData   = null;
 
-// ââ Formatters ââ
+// -- Formatters --
 function fmtKPI(n) {
-  if (n == null) return 'â';
+  if (n == null) return '--';
   if (n >= 10000) return '$' + (n / 1000).toFixed(1) + 'K';
   if (n >= 1000)  return '$' + (n / 1000).toFixed(2) + 'K';
   return '$' + n.toFixed(2);
@@ -15,7 +15,7 @@ function fmtDollar(n) {
   return '$' + n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 }
 function fmtNum(n) {
-  if (n == null) return 'â';
+  if (n == null) return '--';
   if (n >= 1000) return (n / 1000).toFixed(1) + 'K';
   return n.toLocaleString();
 }
@@ -25,7 +25,7 @@ function fmtViews(n) {
   return String(n);
 }
 
-// ââ Tab switch ââ
+// -- Tab switch --
 function switchTab(tab) {
   currentTab = tab;
   document.querySelectorAll('.tab').forEach(function(b) {
@@ -34,7 +34,7 @@ function switchTab(tab) {
   if (dashData) renderAll();
 }
 
-// ââ Render all ââ
+// -- Render all --
 function renderAll() {
   var d = dashData[currentTab];
   if (!d) return;
@@ -52,7 +52,7 @@ function renderAll() {
   renderTable(d.creators);
 }
 
-// ââ Bar chart ââ
+// -- Bar chart --
 function renderChart(creators) {
   var top5    = creators.slice(0, 5);
   var labels  = top5.map(function(c) { return c.name.replace('@', ''); });
@@ -99,7 +99,7 @@ function renderChart(creators) {
             font: { size: 11 }, color: '#9ca3af',
             callback: function(v) {
               if (v >= 1000) return '$' + (v / 1000).toFixed(0) + 'K';
-      2       return '$' + v;
+              return '$' + v;
             }
           }
         }
@@ -111,7 +111,7 @@ function renderChart(creators) {
   if (sub) sub.textContent = 'Top 5';
 }
 
-// ââ Top videos (thumbnail cards) ââ
+// -- Top videos (thumbnail cards) --
 function renderVideos(videos) {
   var el = document.getElementById('video-list');
   if (!el) return;
@@ -127,7 +127,7 @@ function renderVideos(videos) {
     html += '</div>';
     html += '<div class="video-card-body">';
     html += '<div class="video-card-title" title="' + v.title + '">' + v.title + '</div>';
-    html += '<div class="video-card-meta">' + v.creator + ' Â· ' + fmtViews(v.viewers) + ' views</div>';
+    html += '<div class="video-card-meta">' + v.creator + ' \u00B7 ' + fmtViews(v.viewers) + ' views</div>';
     html += '<div class="video-card-gmv">' + fmtDollar(v.gmv) + '</div>';
     html += '</div>';
     html += '</div>';
@@ -135,7 +135,7 @@ function renderVideos(videos) {
   el.innerHTML = html;
 }
 
-// ââ Creator table ââ
+// -- Creator table --
 function renderTable(creators) {
   var tbody = document.getElementById('creator-tbody');
   if (!tbody) return;
@@ -146,7 +146,7 @@ function renderTable(creators) {
     var rc  = rankClass[i] || '';
     var commHtml = c.commission != null
       ? fmtDollar(c.commission)
-  2   : '<span class="null-val">â</span>';
+      : '<span class="null-val">--</span>';
     html += '<tr>';
     html += '<td><span class="rank-num ' + rc + '">' + (i + 1) + '</span></td>';
     html += '<td>';
@@ -166,7 +166,7 @@ function renderTable(creators) {
   if (countEl) countEl.textContent = 'Top ' + creators.length;
 }
 
-// ââ Load data ââ
+// -- Load data --
 function loadData() {
   fetch('performance-data.json?t=' + Date.now())
     .then(function(r) { return r.json(); })
