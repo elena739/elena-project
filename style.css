@@ -146,6 +146,7 @@ a.video-card {
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  transition: background-image 0.3s ease;
 }
 .vt-g1 { background: linear-gradient(160deg,#ec4899,#f97316); }
 .vt-g2 { background: linear-gradient(160deg,#8b5cf6,#ec4899); }
@@ -267,4 +268,18 @@ a.video-card {
   .container { padding: 0 16px; }
   .main { padding: 16px; gap: 14px; }
   .kpi-value { font-size: 18px; }
+}
+
+/* Thumbnail overlay when real image loads */
+.video-thumb.has-thumb::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 50%;
+  background: linear-gradient(to top, rgba(0,0,0,0.45), transparent);
+  pointer-events: none;
+}
+.video-thumb.has-thumb .video-thumb-play {
+  background: rgba(255,255,255,.30);
+  border: 1px solid rgba(255,255,255,.5);
 }
