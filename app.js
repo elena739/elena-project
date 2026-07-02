@@ -120,7 +120,10 @@ function renderVideos(videos) {
   for (var i = 0; i < videos.length; i++) {
     var v  = videos[i];
     var g  = gradients[i] || 'vt-g1';
-    html += '<div class="video-card">';
+    var url = v.url || '';
+    var tag    = url ? 'a' : 'div';
+    var attrs  = url ? ' href="' + url + '" target="_blank" rel="noopener"' : '';
+    html += '<' + tag + ' class="video-card"' + attrs + '>';
     html += '<div class="video-thumb ' + g + '">';
     html += '<div class="video-thumb-rank">' + (i + 1) + '</div>';
     html += '<div class="video-thumb-play"></div>';
@@ -130,7 +133,7 @@ function renderVideos(videos) {
     html += '<div class="video-card-meta">' + v.creator + ' \u00B7 ' + fmtViews(v.viewers) + ' views</div>';
     html += '<div class="video-card-gmv">' + fmtDollar(v.gmv) + '</div>';
     html += '</div>';
-    html += '</div>';
+    html += '</' + tag + '>';
   }
   el.innerHTML = html;
 }
