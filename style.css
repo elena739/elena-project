@@ -11,7 +11,7 @@ body {
 
 .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
-/* ── Header ── */
+/* ââ Header ââ */
 .header {
   background: #fff;
   border-bottom: 1px solid #e5e7eb;
@@ -47,7 +47,7 @@ body {
   border: 1px solid #e5e7eb;
 }
 
-/* ── Tabs ── */
+/* ââ Tabs ââ */
 .tabs-wrapper { background: #fff; border-bottom: 1px solid #e5e7eb; }
 .tabs { display: flex; align-items: center; height: 44px; }
 .tab {
@@ -62,10 +62,10 @@ body {
 .tab.active { color: #ec4899; border-bottom-color: #ec4899; font-weight: 600; }
 .period-label { margin-left: 12px; font-size: 12px; color: #9ca3af; }
 
-/* ── Main ── */
+/* ââ Main ââ */
 .main { padding: 28px 24px; display: flex; flex-direction: column; gap: 20px; }
 
-/* ── KPI Grid ── */
+/* ââ KPI Grid ââ */
 .kpi-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -94,10 +94,10 @@ body {
 .kpi-label { font-size: 11px; color: #9ca3af; text-transform: uppercase; letter-spacing: .4px; margin-bottom: 3px; }
 .kpi-value { font-size: 22px; font-weight: 700; color: #111827; line-height: 1.1; }
 
-/* ── Two-column ── */
+/* ââ Two-column ââ */
 .two-col { display: grid; grid-template-columns: 1.5fr 1fr; gap: 16px; }
 
-/* ── Panel ── */
+/* ââ Panel ââ */
 .panel {
   background: #fff;
   border-radius: 12px;
@@ -111,10 +111,10 @@ body {
 .panel-title { font-size: 14px; font-weight: 600; color: #111827; }
 .panel-sub   { font-size: 12px; color: #9ca3af; }
 
-/* ── Chart ── */
+/* ââ Chart ââ */
 .chart-container { position: relative; height: 280px; }
 
-/* ── Video thumbnail cards ── */
+/* ââ Video thumbnail cards ââ */
 .video-cards {
   display: flex;
   gap: 14px;
@@ -128,6 +128,11 @@ body {
   overflow: hidden;
   border: 1px solid #f0f0f0;
   transition: transform .15s, box-shadow .15s;
+}
+a.video-card {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
 }
 .video-card:hover {
   transform: translateY(-2px);
@@ -206,7 +211,7 @@ body {
   padding-top: 6px;
 }
 
-/* ── Data Table ── */
+/* ââ Data Table ââ */
 .table-scroll { overflow-x: auto; }
 .data-table { width: 100%; border-collapse: collapse; }
 .data-table th {
@@ -243,7 +248,7 @@ body {
 }
 .null-val { color: #d1d5db; }
 
-/* ── Footer ── */
+/* ââ Footer ââ */
 .footer {
   padding: 20px 24px;
   font-size: 12px; color: #9ca3af;
@@ -252,7 +257,7 @@ body {
   margin-top: 8px;
 }
 
-/* ── Responsive ── */
+/* ââ Responsive ââ */
 @media (max-width: 900px) {
   .kpi-grid { grid-template-columns: repeat(2, 1fr); }
   .two-col  { grid-template-columns: 1fr; }
