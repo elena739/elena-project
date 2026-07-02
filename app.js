@@ -111,6 +111,39 @@ function renderChart(creators) {
   if (sub) sub.textContent = 'Top 5';
 }
 
+// -- Thumbnail loader (TikTok oEmbed) --
+var thumbCache = {};
+function loadThumbnails() {
+  var thumbEls = document.querySelectorAll('.video-thumb[data-url]');
+  thumbEls.forEach(function(el) {
+    var url = el.getAttribute('data-url');
+    if (!url) return;
+    if (thumbCache[url]) {
+      applyThumb(el, thumbCache[url]);
+      return;
+    }
+    fetch('https://www.tiktok.com/oembed?url=' + encodeURIComponent(url))
+      .then(function(r) { return r.json(); })
+      .then(function(d) {
+        if (d.thumbnail_url) {
+          thumbCache[url] = d.thumbnail_url;
+          applyThumb(el, d.thumbnail_url);
+        }
+      })
+      .catch(function() {});
+  });
+}
+function applyThumb(el, imgUrl) {
+  var img = new Image();
+  img.onload = function() {
+    el.style.backgroundImage = 'url(' + imgUrl + ')';
+    el.style.backgroundSize = 'cover';
+    el.style.backgroundPosition = 'center top';
+    el.classList.add('has-thumb');
+  };
+  img.src = imgUrl;
+}
+
 // -- Top videos (thumbnail cards) --
 function renderVideos(videos) {
   var el = document.getElementById('video-list');
@@ -123,8 +156,9 @@ function renderVideos(videos) {
     var url = v.url || '';
     var tag    = url ? 'a' : 'div';
     var attrs  = url ? ' href="' + url + '" target="_blank" rel="noopener"' : '';
+    var dataUrl = url ? ' data-url="' + url + '"' : '';
     html += '<' + tag + ' class="video-card"' + attrs + '>';
-    html += '<div class="video-thumb ' + g + '">';
+    html += '<div class="video-thumb ' + g + '"' + dataUrl + '>';
     html += '<div class="video-thumb-rank">' + (i + 1) + '</div>';
     html += '<div class="video-thumb-play"></div>';
     html += '</div>';
@@ -136,6 +170,7 @@ function renderVideos(videos) {
     html += '</' + tag + '>';
   }
   el.innerHTML = html;
+  loadThumbnails();
 }
 
 // -- Creator table --
