@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Entropy US — TikTok Shop 매출 운영 대시보드</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<style>
+  :root{
+    --tt-black:#161823;
+    --tt-cyan:#25F4EE;
+    --tt-pink:#FE2C55;
+    --bg:#f4f5f7;
+    --card:#ffffff;
+    --border:#e6e8ec;
+    --text:#161823;
+    --muted:#6b7280;
+    --green:#0f9d58;
+    --green-bg:#e6f7ee;
+    --amber:#b45309;
+    --amber-bg:#fef3e2;
+    --radius:14px;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Malgun Gothic",sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    padding:28px 32px 60px;
+  }
+  a{color:var(--tt-pink);text-decoration:none;font-weight:600;}
+  a:hover{text-decoration:underline;}
+  .wrap{max-width:1180px;margin:0 auto;}
+  .top-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-bottom:24px;
+  }
+  .top-header h1{
+    font-size:24px;
+    margin:0 0 4px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .badge-logo{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:30px;height:30px;
+    border-radius:8px;
+    background:var(--tt-black);
+    color:#fff;
+    font-weight:700;
+    font-size:14px;
+  }
+  .top-header .sub{color:var(--muted);font-size:13px;}
+  .updated{
+    font-size:12px;
+    color:var(--muted);
+    background:var(--card);
+    border:1px solid var(--border);
+    padding:8px 14px;
+    border-radius:10px;
+    text-align:right;
+  }
+  .updated b{color:var(--text);}
+
+  section{margin-bottom:36px;}
+  .section-title{
+    display:flex;
+    align-items:baseline;
+    gap:10px;
+    margin-bottom:14px;
+    flex-wrap:wrap;
+  }
+  .section-title .num{
+    display:inline-flex;
+    align-items:center;justify-content:center;
+    width:24px;height:24px;
+    border-radius:50%;
+    background:var(--tt-black);
+    color:#fff;
+    font-size:12px;
+    font-weight:700;
+  }
+  .section-title h2{font-size:17px;margin:0;}
+  .section-title .desc{font-size:12px;color:var(--muted);}
+
+  /* Push product cards */
+  .product-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
+  }
+  .product-card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:16px 16px 14px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  .product-card .pname{font-weight:700;font-size:14.5px;line-height:1.3;min-height:38px;}
+  .row-line{display:flex;justify-content:space-between;font-size:12.5px;color:var(--muted);}
+  .row-line span.val{color:var(--text);font-weight:600;text-align:right;}
+  .status-pill{
+    margin-top:2px;
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    font-size:12px;
+    font-weight:700;
+    padding:6px 10px;
+    border-radius:999px;
+    width:fit-content;
+  }
+  .status-done{background:var(--green-bg);color:var(--green);}
+  .status-progress{background:var(--amber-bg);color:var(--amber);}
+
+  /* detail tables */
+  .detail-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+  }
+  .panel{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:18px 18px 8px;
+  }
+  .panel h3{font-size:14px;margin:0 0 12px;}
+  table{width:100%;border-collapse:collapse;font-size:12.5px;}
+  th{
+    text-align:left;
+    color:var(--muted);
+    font-weight:600;
+    padding:8px 8px;
+    border-bottom:1px solid var(--border);
+    white-space:nowrap;
+  }
+  td{
+    padding:10px 8px;
+    border-bottom:1px solid #f0f1f3;
+    vertical-align:top;
+  }
+  tr:last-child td{border-bottom:none;}
+  .num-cell{text-align:right;font-variant-numeric:tabular-nums;}
+  .muted{color:var(--muted);}
+
+  /* KPI tabs */
+  .kpi-panel{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:20px;
+  }
+  .kpi-tabs{
+    display:inline-flex;
+    background:#eef0f3;
+    border-radius:10px;
+    padding:4px;
+    margin-bottom:16px;
+    gap:4px;
+  }
+  .kpi-tab-btn{
+    border:none;
+    background:transparent;
+    padding:8px 20px;
+    font-size:13px;
+    font-weight:700;
+    border-radius:8px;
+    cursor:pointer;
+    color:var(--muted);
+    transition:all .15s ease;
+  }
+  .kpi-tab-btn.active{
+    background:var(--tt-black);
+    color:#fff;
+  }
+  .kpi-period-label{
+    font-size:12px;
+    color:var(--muted);
+    margin-bottom:14px;
+  }
+  .kpi-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
+  }
+  .kpi-card{
+    background:var(--bg);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:18px;
+  }
+  .kpi-card .label{font-size:12.5px;color:var(--muted);margin-bottom:8px;}
+  .kpi-card .value{font-size:26px;font-weight:800;letter-spacing:-0.5px;}
+  .kpi-card .delta{font-size:12px;font-weight:700;margin-top:6px;}
+  .delta.up{color:var(--green);}
+  .delta.down{color:var(--tt-pink);}
+  .delta.flat{color:var(--muted);}
+  .kpi-view{display:none;}
+  .kpi-view.active{display:block;}
+
+  /* GMV breakdown */
+  .gmv-wrap{
+    display:grid;
+    grid-template-columns:280px 1fr;
+    gap:24px;
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:22px;
+    align-items:center;
+  }
+  .chart-box{position:relative;width:260px;height:260px;margin:0 auto;}
+  .chart-center{
+    position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+    text-align:center;pointer-events:none;
+  }
+  .chart-center .big{font-size:20px;font-weight:800;}
+  .chart-center .small{font-size:11px;color:var(--muted);}
+  .legend-dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;}
+
+  footer{
+    text-align:center;
+    font-size:11.5px;
+    color:var(--muted);
+    margin-top:40px;
+    line-height:1.7;
+  }
+
+  @media (max-width:900px){
+    .product-grid{grid-template-columns:repeat(2,1fr);}
+    .detail-grid{grid-template-columns:1fr;}
+    .kpi-grid{grid-template-columns:repeat(2,1fr);}
+    .gmv-wrap{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="top-header">
+    <div>
+      <h1><span class="badge-logo">TT</span> Entropy US — TikTok Shop 매출 운영 대시보드</h1>
+      <div class="sub">Shop: Entropy US (seller-us.tiktok.com) · 데일리 운영 확인용 대시보드 · <a href="index.html">📈 성과 분석 대시보드 바로가기</a></div>
+    </div>
+    <div class="updated">
+      최종 업데이트: <b id="updatedAt">2026-07-06 10:33 (Seller Center 기준, PT)</b><br>
+      Daily 기준일: 2026-07-04 · Monthly 기준: 2026-07-01 ~ 2026-07-04 (7월 MTD)
+    </div>
+  </div>
+
+  <!-- 1. Push Product Status -->
+  <section>
+    <div class="section-title">
+      <span class="num">1</span>
+      <h2>Push Product Status</h2>
+      <span class="desc">현재 집중 운영 중인 4개 제품의 진행 단계</span>
+    </div>
+
+    <div class="product-grid">
+      <!-- Charm Tint Glossy -->
+      <div class="product-card">
+        <div class="pname">Charm Tint Glossy<br><span class="muted" style="font-weight:400;font-size:11.5px;">(CHARM TINT Glossy Gel Line)</span></div>
+        <div class="row-line">Hero Color <span class="val">발굴 중</span></div>
+        <div class="row-line">Hero Creator <span class="val">vee🍒</span></div>
+        <div class="status-pill status-progress">🔄 Hero Color 발굴 중</div>
+      </div>
+      <!-- Charm Tint Blurry -->
+      <div class="product-card">
+        <div class="pname">Charm Tint Blurry<br><span class="muted" style="font-weight:400;font-size:11.5px;">(CHARM TINT Blurry Base Line)</span></div>
+        <div class="row-line">Hero Color <span class="val">Topaz Gem (G5)</span></div>
+        <div class="row-line">Hero Creator <span class="val">Rachel Prisya</span></div>
+        <div class="status-pill status-done">✅ 발굴 완료</div>
+      </div>
+      <!-- Slide Up Dough Cheek -->
+      <div class="product-card">
+        <div class="pname">Slide Up Dough Cheek</div>
+        <div class="row-line">Hero Color <span class="val">발굴 중</span></div>
+        <div class="row-line">Hero Creator <span class="val">발굴 중</span></div>
+        <div class="status-pill status-progress">🔄 Hero Color·Creator 발굴 중</div>
+      </div>
+      <!-- Brow Dye -->
+      <div class="product-card">
+        <div class="pname">Brow Dye<br><span class="muted" style="font-weight:400;font-size:11.5px;">(ENTROPY Eyebrow Dye)</span></div>
+        <div class="row-line">Hero Color <span class="val">Ash Brown</span></div>
+        <div class="row-line">Hero Creator <span class="val">발굴 중</span></div>
+        <div class="status-pill status-progress">🔄 Hero Creator 발굴 중</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Daily / Monthly KPI (tab) -->
+  <section>
+    <div class="section-title">
+      <span class="num">2</span>
+      <h2>KPI</h2>
+      <span class="desc">TikTok Shop Analytics → Key Metrics</span>
+    </div>
+
+    <div class="kpi-panel">
+      <div class="kpi-tabs">
+        <button class="kpi-tab-btn active" onclick="showKpi('daily', this)">Daily</button>
+        <button class="kpi-tab-btn" onclick="showKpi('monthly', this)">Monthly</button>
+      </div>
+
+      <!-- Daily view -->
+      <div id="kpi-daily" class="kpi-view active">
+        <div class="kpi-period-label">기준일: <b>2026-07-04 (어제, PT 기준)</b> · 전일(2026-07-03) 대비 증감</div>
+        <div class="kpi-grid">
+          <div class="kpi-card">
+            <div class="label">GMV</div>
+            <div class="value">$128.76</div>
+            <div class="delta down">▼ 34.41%</div>
+          </div>
+          <div class="kpi-card">
+            <div class="label">Orders</div>
+            <div class="value">7</div>
+            <div class="delta down">▼ 12.5%</div>
+          </div>
+          <div class="kpi-card">
+            <div class="label">Customers</div>
+            <div class="value">7</div>
+            <div class="delta down">▼ 12.5%</div>
+          </div>
+          <div class="kpi-card">
+            <div class="label">Items Sold</div>
+            <div class="value">8</div>
+            <div class="delta down">▼ 20%</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Monthly view (calendar month-to-date, resets on the 1st of each month) -->
+      <div id="kpi-monthly" class="kpi-view">
+        <div class="kpi-period-label">기준 기간: <b>2026-07-01 ~ 2026-07-04 (7월 누적, Month-to-date)</b> · 직전 동기간(6/27~6/30) 대비 증감</div>
+        <div class="kpi-grid">
+          <div class="kpi-card">
+            <div class="label">GMV</div>
+            <div class="value">$1,021.24</div>
+            <div class="delta up">▲ 12.94%</div>
+          </div>
+          <div class="kpi-card">
+            <div class="label">Orders</div>
+            <div class="value">59</div>
+            <div class="delta up">▲ 13.46%</div>
+          </div>
+          <div class="kpi-card">
+            <div class="label">Customers</div>
+            <div class="value">58</div>
+            <div class="delta up">▲ 13.73%</div>
+          </div>
+          <div class="kpi-card">
+            <div class="label">Items Sold</div>
+            <div class="value">68</div>
+            <div class="delta up">▲ 6.25%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Hero Color / Hero Creator 상세 -->
+  <section>
+    <div class="section-title">
+      <span class="num">3</span>
+      <h2>제품별 Hero Color / Hero Creator 현황</h2>
+      <span class="desc">최근 30일 Product Performance / Affiliate 기준</span>
+    </div>
+
+    <div class="detail-grid">
+      <!-- Hero Color detail -->
+      <div class="panel">
+        <h3>① Hero Color <span class="muted" style="font-weight:400;">(제품 GMV 40% 이상 컬러)</span></h3>
+        <table>
+          <thead>
+            <tr><th>Product</th><th>Hero Color</th><th class="num-cell">30일 GMV</th><th class="num-cell">비중</th><th>Status</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Charm Tint Glossy</td>
+              <td>Amber Charm (최고 비중, 미달)</td>
+              <td class="num-cell">$5,848.48</td>
+              <td class="num-cell">27.4%</td>
+              <td>🔄 발굴 중</td>
+            </tr>
+            <tr>
+              <td>Charm Tint Blurry</td>
+              <td><b>Topaz Gem (G5)</b></td>
+              <td class="num-cell">$17,217.94</td>
+              <td class="num-cell">58.4%</td>
+              <td>✅ Hero Color</td>
+            </tr>
+            <tr>
+              <td>Slide Up Dough Cheek</td>
+              <td>LOVE FLASH (최고 비중, 미달)</td>
+              <td class="num-cell">$521.43</td>
+              <td class="num-cell">18.4%</td>
+              <td>🔄 발굴 중</td>
+            </tr>
+            <tr>
+              <td>Brow Dye</td>
+              <td><b>Ash Brown</b></td>
+              <td class="num-cell">$1,391.39</td>
+              <td class="num-cell">70.7%</td>
+              <td>✅ Hero Color</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Hero Creator detail -->
+      <div class="panel">
+        <h3>② Hero Creator <span class="muted" style="font-weight:400;">(조회수 100만+ 1건 또는 1위·2위 GMV 1.5배 이상)</span></h3>
+        <table>
+          <thead>
+            <tr><th>Product</th><th>Hero Creator</th><th class="num-cell">30일 GMV</th><th class="num-cell">콘텐츠</th><th>Status</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Charm Tint Glossy</td>
+              <td>vee🍒 <span class="muted">(2위 대비 1.51배)</span></td>
+              <td class="num-cell">$3,074.57</td>
+              <td class="num-cell">15개</td>
+              <td>✅ Hero Creator</td>
+            </tr>
+            <tr>
+              <td>Charm Tint Blurry</td>
+              <td>Rachel Prisya <span class="muted">(조회수 106만)</span></td>
+              <td class="num-cell">$15,397.23</td>
+              <td class="num-cell">40개</td>
+              <td>✅ Hero Creator</td>
+            </tr>
+            <tr>
+              <td>Slide Up Dough Cheek</td>
+              <td class="muted">유의미한 Affiliate 없음</td>
+              <td class="num-cell">-</td>
+              <td class="num-cell">-</td>
+              <td>🔄 발굴 중</td>
+            </tr>
+            <tr>
+              <td>Brow Dye</td>
+              <td>yonnie ♡ <span class="muted">(2위 대비 1.04배)</span></td>
+              <td class="num-cell">$182.04</td>
+              <td class="num-cell">1개</td>
+              <td>🔄 발굴 중</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. GMV Breakdown -->
+  <section>
+    <div class="section-title">
+      <span class="num">4</span>
+      <h2>GMV Breakdown</h2>
+      <span class="desc">채널별 GMV 유입 비중 (이번 달 7/1~7/4 기준, Month-to-date)</span>
+    </div>
+    <div class="gmv-wrap">
+      <div class="chart-box">
+        <canvas id="gmvPie"></canvas>
+        <div class="chart-center">
+          <div class="big">$1,021.24</div>
+          <div class="small">Total GMV</div>
+        </div>
+      </div>
+      <table>
+        <thead>
+          <tr><th></th><th>Source</th><th class="num-cell">GMV</th><th class="num-cell">% of Total GMV</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="legend-dot" style="background:#FE2C55;"></span></td>
+            <td>Creator Contents GMV</td>
+            <td class="num-cell">$734.68</td>
+            <td class="num-cell">71.9%</td>
+          </tr>
+          <tr>
+            <td><span class="legend-dot" style="background:#FFC845;"></span></td>
+            <td>Seller Contents GMV</td>
+            <td class="num-cell">$0.00</td>
+            <td class="num-cell">0.0%</td>
+          </tr>
+          <tr>
+            <td><span class="legend-dot" style="background:#25F4EE;"></span></td>
+            <td>Shop Tab & Search GMV</td>
+            <td class="num-cell">$286.56</td>
+            <td class="num-cell">28.1%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <footer>
+    데이터 출처: TikTok Shop Seller Center (Shop analytics / Product analytics / Affiliate Center), Entropy US 계정 기준<br>
+    Hero Color 기준: 제품 전체 GMV의 40% 이상 차지하는 컬러 · Hero Creator 기준: 최근 30일 조회수 100만 이상 콘텐츠 보유 또는 누적 GMV 1위가 2위 대비 1.5배 이상<br>
+    본 대시보드는 매일 Seller Center 데이터를 다시 확인해 자동 갱신하도록 설계되었습니다. 지표·판정 로직은 위 표를 직접 편집해 손쉽게 수정할 수 있습니다.
+  </footer>
+
+</div>
+
+<script>
+  function showKpi(which, btn){
+    document.querySelectorAll('.kpi-view').forEach(function(el){ el.classList.remove('active'); });
+    document.getElementById('kpi-' + which).classList.add('active');
+    document.querySelectorAll('.kpi-tab-btn').forEach(function(el){ el.classList.remove('active'); });
+    btn.classList.add('active');
+  }
+
+  const ctx = document.getElementById('gmvPie').getContext('2d');
+  new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+      labels: ['Creator Contents', 'Seller Contents', 'Shop Tab & Search'],
+      datasets: [{
+        data: [71.9, 0.0, 28.1],
+        backgroundColor: ['#FE2C55', '#FFC845', '#25F4EE'],
+        borderWidth: 3,
+        borderColor: '#ffffff'
+      }]
+    },
+    options: {
+      cutout: '68%',
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: function(context) {
+              const gmvMap = {
+                'Creator Contents': '$734.68',
+                'Seller Contents': '$0.00',
+                'Shop Tab & Search': '$286.56'
+              };
+              const label = context.label;
+              return label + ': ' + gmvMap[label] + ' (' + context.parsed + '%)';
+            }
+          }
+        }
+      }
+    }
+  });
+</script>
+
+</body>
+</html>
