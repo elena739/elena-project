@@ -1,259 +1,179 @@
 {
-  "updatedAt": "2026-07-01",
+  "updatedAt": "2026-07-06",
   "weekly": {
     "label": "Last 7 days",
-    "period": "Jun 23 \u2013 Jun 29, 2026",
+    "period": "Jun 28 – Jul 4, 2026",
     "kpi": {
-      "affiliateGmv": 2752.65,
-      "itemsSold": 414,
-      "estCommission": 659.43,
-      "activeAffiliates": 6376
-    },
-    "creators": [
-      {
-        "name": "@cherrieevee",
-        "gmv": 470.45,
-        "orders": 57,
-        "commission": 75.27,
-        "ctr": 1.21,
-        "followers": "47.2K"
-      },
-      {
-        "name": "@theraysfinds",
-        "gmv": 179.61,
-        "orders": 12,
-        "commission": 46.57,
-        "ctr": 3.88,
-        "followers": "29.9K"
-      },
-      {
-        "name": "@findsbyrachelp1",
-        "gmv": 151.83,
-        "orders": 17,
-        "commission": 28.72,
-        "ctr": 2.46,
-        "followers": "6.3K"
-      },
-      {
-        "name": "@maiii.finds",
-        "gmv": 129.61,
-        "orders": 12,
-        "commission": 24.93,
-        "ctr": 1.92,
-        "followers": "6.2K"
-      },
-      {
-        "name": "@ch1aseedd",
-        "gmv": 124.11,
-        "orders": 31,
-        "commission": 41.81,
-        "ctr": 3.4,
-        "followers": "3.4K"
-      },
-      {
-        "name": "@victoriad0308",
-        "gmv": 116.73,
-        "orders": 32,
-        "commission": 39.86,
-        "ctr": 1.37,
-        "followers": "2.3K"
-      },
-      {
-        "name": "@kendicefinds",
-        "gmv": 109.81,
-        "orders": 16,
-        "commission": 22.49,
-        "ctr": 2.71,
-        "followers": "4.8K"
-      },
-      {
-        "name": "@minjuugc",
-        "gmv": 98.09,
-        "orders": 10,
-        "commission": 24.62,
-        "ctr": 2.28,
-        "followers": "31.6K"
-      },
-      {
-        "name": "@toniann_cecile",
-        "gmv": 87.54,
-        "orders": 14,
-        "commission": 24.24,
-        "ctr": 3.71,
-        "followers": "\u2014"
-      },
-      {
-        "name": "@sj.gonzalez_",
-        "gmv": 83.66,
-        "orders": 18,
-        "commission": null,
-        "ctr": 3.46,
-        "followers": "17.9K"
-      }
-    ],
-    "topVideos": [
-      {
-        "title": "love the packaging bc u can clip it on ur bag!!",
-        "creator": "@cherrieevee",
-        "viewers": 45000,
-        "gmv": 156.84,
-        "url": "https://www.tiktok.com/@cherrieevee/video/7632575812125936926"
-      },
-      {
-        "title": "actually such a good tint base",
-        "creator": "@theraysfinds",
-        "viewers": 1800,
-        "gmv": 147.79,
-        "url": "https://www.tiktok.com/@theraysfinds/video/7651094446016122125"
-      },
-      {
-        "title": "when the packaging eats + the product is good",
-        "creator": "@cherrieevee",
-        "viewers": 30000,
-        "gmv": 123.39,
-        "url": "https://www.tiktok.com/@cherrieevee/video/7653021400084630814"
-      },
-      {
-        "title": "Video post",
-        "creator": "@victoriad0308",
-        "viewers": 13400,
-        "gmv": 116.73,
-        "url": "https://www.tiktok.com/@victoriad0308/video/7639609105136585997"
-      },
-      {
-        "title": "why is the pigment on this so good?",
-        "creator": "@kendicefinds",
-        "viewers": 14000,
-        "gmv": 109.81,
-        "url": "https://www.tiktok.com/@kendicefinds/video/7630851380575505677"
-      }
-    ]
-  },
-  "monthly": {
-    "label": "Last 28 days",
-    "period": "Jun 2 \u2013 Jun 29, 2026",
-    "kpi": {
-      "affiliateGmv": 51387.41,
-      "itemsSold": 5900,
-      "estCommission": 8930.1,
-      "activeAffiliates": 16040
+      "affiliateGmv": 1316.45,
+      "itemsSold": 90,
+      "estCommission": 193.52,
+      "activeAffiliates": 6383
     },
     "creators": [
       {
         "name": "@findsbyrachelp1",
-        "gmv": 16495.43,
-        "orders": 1430,
-        "commission": 1889.84,
-        "ctr": 2.73,
+        "gmv": 463.78,
+        "orders": 28,
+        "commission": 78.11,
+        "ctr": 3.02,
         "followers": "6.3K"
       },
       {
         "name": "@cherrieevee",
-        "gmv": 4154.79,
-        "orders": 507,
-        "commission": 696.85,
-        "ctr": 1.05,
-        "followers": "47.2K"
-      },
-      {
-        "name": "@theraysfinds",
-        "gmv": 3485.83,
-        "orders": 253,
-        "commission": null,
-        "ctr": 3.12,
-        "followers": "29.9K"
-      },
-      {
-        "name": "@auraofbellaa",
-        "gmv": 2288.77,
-        "orders": 297,
-        "commission": 290.99,
-        "ctr": 2.48,
-        "followers": "6.0K"
-      },
-      {
-        "name": "@aliandlexitwins",
-        "gmv": 1514.92,
-        "orders": 199,
-        "commission": 288.43,
-        "ctr": 2.37,
-        "followers": "12.5K"
-      },
-      {
-        "name": "@sj.gonzalez_",
-        "gmv": 1430.92,
-        "orders": 199,
-        "commission": 317.66,
-        "ctr": 2.37,
-        "followers": "17.9K"
-      },
-      {
-        "name": "@kendicefinds",
-        "gmv": 1336.94,
-        "orders": 157,
-        "commission": 250.51,
-        "ctr": 2.5,
-        "followers": "4.8K"
-      },
-      {
-        "name": "@ch1aseedd",
-        "gmv": 1308.86,
-        "orders": 195,
-        "commission": 316.49,
-        "ctr": 3.05,
-        "followers": "3.4K"
+        "gmv": 128.19,
+        "orders": 7,
+        "commission": 16.72,
+        "ctr": 3.01,
+        "followers": "47.3K"
       },
       {
         "name": "@ngocng_8",
-        "gmv": 1288.63,
-        "orders": 102,
-        "commission": 230.79,
-        "ctr": 3.72,
+        "gmv": 106.81,
+        "orders": 4,
+        "commission": 17.75,
+        "ctr": 5.55,
         "followers": "13.1K"
       },
       {
-        "name": "@minjuugc",
-        "gmv": 1230.21,
-        "orders": 109,
-        "commission": 289.62,
-        "ctr": 1.74,
-        "followers": "31.6K"
+        "name": "@theraysfinds",
+        "gmv": 87.78,
+        "orders": 5,
+        "commission": 17.58,
+        "ctr": 1.94,
+        "followers": "29.9K"
+      },
+      {
+        "name": "@bladehaus_",
+        "gmv": 74.82,
+        "orders": 6,
+        "commission": 0.08,
+        "ctr": 5.19,
+        "followers": "12.3K"
       }
     ],
     "topVideos": [
       {
         "title": "Lip shading whoooo (using shade G5 topaz gem)",
         "creator": "@findsbyrachelp1",
-        "viewers": 949500,
-        "gmv": 6666.96,
+        "viewers": 3100,
+        "gmv": 199.44,
         "url": "https://www.tiktok.com/@findsbyrachelp1/video/7648315198255729951"
       },
       {
-        "title": "Wearing shade G5",
+        "title": "wearing violet gem",
         "creator": "@findsbyrachelp1",
-        "viewers": 293600,
-        "gmv": 3645.26,
-        "url": "https://www.tiktok.com/@findsbyrachelp1/video/7647691398971542815"
+        "viewers": 2140,
+        "gmv": 105.69,
+        "url": "https://www.tiktok.com/@findsbyrachelp1/video/7657249407280188703"
       },
       {
         "title": "actually such a good tint base",
         "creator": "@theraysfinds",
-        "viewers": 130100,
-        "gmv": 3365.93,
+        "viewers": 244,
+        "gmv": 87.78,
+        "url": "https://www.tiktok.com/@theraysfinds/video/7651094446016122125"
+      },
+      {
+        "title": "Using the shade g5",
+        "creator": "@findsbyrachelp1",
+        "viewers": 1350,
+        "gmv": 81.43,
+        "url": "https://www.tiktok.com/@findsbyrachelp1/video/7644371292715535647"
+      },
+      {
+        "title": "đẹp quá luôn á",
+        "creator": "@ngocng_8",
+        "viewers": 358,
+        "gmv": 80.95,
+        "url": "https://www.tiktok.com/@ngocng_8/video/7648245390965230878"
+      }
+    ]
+  },
+  "monthly": {
+    "label": "Last 28 days",
+    "period": "Jun 7 – Jul 4, 2026",
+    "kpi": {
+      "affiliateGmv": 42816.34,
+      "itemsSold": 4868,
+      "estCommission": 7637.48,
+      "activeAffiliates": 16797
+    },
+    "creators": [
+      {
+        "name": "@findsbyrachelp1",
+        "gmv": 14132.47,
+        "orders": 1190,
+        "commission": 1693.51,
+        "ctr": 2.53,
+        "followers": "6.3K"
+      },
+      {
+        "name": "@cherrieevee",
+        "gmv": 3547.44,
+        "orders": 447,
+        "commission": 591.36,
+        "ctr": 1.04,
+        "followers": "47.3K"
+      },
+      {
+        "name": "@theraysfinds",
+        "gmv": 3529.72,
+        "orders": 256,
+        "commission": 337,
+        "ctr": 3.11,
+        "followers": "29.9K"
+      },
+      {
+        "name": "@auraofbellaa",
+        "gmv": 2058.33,
+        "orders": 266,
+        "commission": 270.72,
+        "ctr": 2.37,
+        "followers": "6.0K"
+      },
+      {
+        "name": "@sj.gonzalez_",
+        "gmv": 1231.22,
+        "orders": 178,
+        "commission": 291.86,
+        "ctr": 2.52,
+        "followers": "17.9K"
+      }
+    ],
+    "topVideos": [
+      {
+        "title": "Lip shading whoooo (using shade G5 topaz gem)",
+        "creator": "@findsbyrachelp1",
+        "viewers": 951640,
+        "gmv": 6866.4,
+        "url": "https://www.tiktok.com/@findsbyrachelp1/video/7648315198255729951"
+      },
+      {
+        "title": "actually such a good tint base",
+        "creator": "@theraysfinds",
+        "viewers": 130230,
+        "gmv": 3409.82,
         "url": "https://www.tiktok.com/@theraysfinds/video/7651094446016122125"
       },
       {
         "title": "This is shade (G5) for those wondering!!",
         "creator": "@findsbyrachelp1",
-        "viewers": 299200,
-        "gmv": 2431.37,
+        "viewers": 299500,
+        "gmv": 2446,
         "url": "https://www.tiktok.com/@findsbyrachelp1/video/7652202314274540830"
+      },
+      {
+        "title": "Wearing shade G5",
+        "creator": "@findsbyrachelp1",
+        "viewers": 191890,
+        "gmv": 2074.14,
+        "url": "https://www.tiktok.com/@findsbyrachelp1/video/7647691398971542815"
       },
       {
         "title": "Video post",
         "creator": "@auraofbellaa",
-        "viewers": 886700,
-        "gmv": 2288.77,
+        "viewers": 802430,
+        "gmv": 2058.33,
         "url": "https://www.tiktok.com/@auraofbellaa/video/7645128826149686559"
       }
     ]
