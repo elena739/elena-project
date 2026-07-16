@@ -1,780 +1,148 @@
 {
-  "updatedAt": "2026-07-14",
+  "updatedAt": "2026-07-16",
   "products": [
     {
       "name": "CHARM TINT Blurry Base Line",
       "skus": [
-        {
-          "color": "G5 Topaz Gem",
-          "skuId": "1732151629945017168",
-          "total": 2493,
-          "available": 2428,
-          "locked": 65,
-          "alert": 0,
-          "status": "ok"
-        },
-        {
-          "color": "G7 Pena Gem",
-          "skuId": "1732151629945148240",
-          "total": 245,
-          "available": 194,
-          "locked": 51,
-          "alert": 0,
-          "status": "ok"
-        },
-        {
-          "color": "G4 Garnet Gem",
-          "skuId": "1732151629944951632",
-          "total": 244,
-          "available": 193,
-          "locked": 51,
-          "alert": 0,
-          "status": "ok"
-        },
-        {
-          "color": "G6 Poudre Gem",
-          "skuId": "1732151629945082704",
-          "total": 190,
-          "available": 140,
-          "locked": 50,
-          "alert": 0,
-          "status": "ok"
-        },
-        {
-          "color": "G9 RhodiaGem",
-          "skuId": "1732151629945279312",
-          "total": 330,
-          "available": 279,
-          "locked": 51,
-          "alert": 0,
-          "status": "ok"
-        },
-        {
-          "color": "G1 Quartz Gem",
-          "skuId": "1732151629944755024",
-          "total": 344,
-          "available": 293,
-          "locked": 51,
-          "alert": 0,
-          "status": "ok"
-        },
-        {
-          "color": "G10 VioletGem",
-          "skuId": "1732151629945344848",
-          "total": 488,
-          "available": 437,
-          "locked": 51,
-          "alert": 0,
-          "status": "ok"
-        },
-        {
-          "color": "G3 Peach Stone Gem",
-          "skuId": "1732151629944886096",
-          "total": 274,
-          "available": 223,
-          "locked": 51,
-          "alert": 0,
-          "status": "ok"
-        },
-        {
-          "color": "G8 Bronze Gem",
-          "skuId": "1732151629945213776",
-          "total": 505,
-          "available": 453,
-          "locked": 52,
-          "alert": 0,
-          "status": "ok"
-        },
-        {
-          "color": "G2 Coral Gem",
-          "skuId": "1732151629944820560",
-          "total": 503,
-          "available": 453,
-          "locked": 50,
-          "alert": 0,
-          "status": "ok"
-        }
+        {"color": "G1 Quartz Gem", "skuId": "1732151629944755024", "total": 343, "available": 343, "locked": 0, "alert": 0, "status": "ok"},
+        {"color": "G2 Coral Gem", "skuId": "1732151629944820560", "total": 503, "available": 503, "locked": 0, "alert": 0, "status": "ok"},
+        {"color": "G3 Peach Stone Gem", "skuId": "1732151629944886096", "total": 272, "available": 272, "locked": 0, "alert": 0, "status": "ok"},
+        {"color": "G4 Garnet Gem", "skuId": "1732151629944951632", "total": 243, "available": 243, "locked": 0, "alert": 0, "status": "ok"},
+        {"color": "G5 Topaz Gem", "skuId": "1732151629945017168", "total": 2465, "available": 2464, "locked": 1, "alert": 0, "status": "ok"},
+        {"color": "G6 Poudre Gem", "skuId": "1732151629945082704", "total": 189, "available": 189, "locked": 0, "alert": 0, "status": "ok"},
+        {"color": "G7 Pena Gem", "skuId": "1732151629945148240", "total": 243, "available": 242, "locked": 1, "alert": 0, "status": "ok"},
+        {"color": "G8 Bronze Gem", "skuId": "1732151629945213776", "total": 503, "available": 503, "locked": 0, "alert": 0, "status": "ok"},
+        {"color": "G9 RhodiaGem", "skuId": "1732151629945279312", "total": 328, "available": 327, "locked": 1, "alert": 0, "status": "ok"},
+        {"color": "G10 VioletGem", "skuId": "1732151629945344848", "total": 487, "available": 487, "locked": 0, "alert": 0, "status": "ok"}
       ]
     },
     {
       "name": "CHARM TINT Glossy Gel Line",
       "skus": [
-        {
-          "color": "C5 Amber Charm",
-          "skuId": "1732151672922542928",
-          "total": 459,
-          "available": 407,
-          "locked": 52,
-          "alert": 0,
-          "status": "ok"
-        },
-        {
-          "color": "C3 Ruby Charm",
-          "skuId": "1732151672922411856",
-          "total": 326,
-          "available": 273,
-          "locked": 53,
-          "alert": 0,
-          "status": "ok"
-        },
-        {
-          "color": "C7 Spinel Charm",
-          "skuId": "1732151672922674000",
-          "total": 397,
-          "available": 344,
-          "locked": 53,
-          "alert": 0,
-          "status": "ok"
-        },
-        {
-          "color": "C10 Taaffeite Charm",
-          "skuId": "1732151672922870608",
-          "total": 707,
-          "available": 656,
-          "locked": 51,
-          "alert": 0,
-          "status": "ok"
-        },
-        {
-          "color": "C1 Opal Charm",
-          "skuId": "1732151672922280784",
-          "total": 220,
-          "available": 170,
-          "locked": 50,
-          "alert": 0,
-          "status": "ok"
-        },
-        {
-          "color": "C6 Water Wood Charm",
-          "skuId": "1732151672922608464",
-          "total": 291,
-          "available": 241,
-          "locked": 50,
-          "alert": 0,
-          "status": "ok"
-        },
-        {
-          "color": "C8 Smoky Quartz Charm",
-          "skuId": "1732151672922739536",
-          "total": 316,
-          "available": 266,
-          "locked": 50,
-          "alert": 0,
-          "status": "ok"
-        },
-        {
-          "color": "C4 Sun Stone Charm",
-          "skuId": "1732151672922477392",
-          "total": 342,
-          "available": 290,
-          "locked": 52,
-          "alert": 0,
-          "status": "ok"
-        },
-        {
-          "color": "C2 Water Rose Charm",
-          "skuId": "1732151672922346320",
-          "total": 454,
-          "available": 404,
-          "locked": 50,
-          "alert": 0,
-          "status": "ok"
-        },
-        {
-          "color": "C9 Beryl Charm",
-          "skuId": "1732151672922805072",
-          "total": 3458,
-          "available": 3404,
-          "locked": 54,
-          "alert": 0,
-          "status": "ok"
-        }
+        {"color": "C1 Opal Charm", "skuId": "1732151672922280784", "total": 220, "available": 220, "locked": 0, "alert": 0, "status": "ok"},
+        {"color": "C2 Water Rose Charm", "skuId": "1732151672922346320", "total": 454, "available": 454, "locked": 0, "alert": 0, "status": "ok"},
+        {"color": "C3 Ruby Charm", "skuId": "1732151672922411856", "total": 322, "available": 322, "locked": 0, "alert": 0, "status": "ok"},
+        {"color": "C4 Sun Stone Charm", "skuId": "1732151672922477392", "total": 339, "available": 339, "locked": 0, "alert": 0, "status": "ok"},
+        {"color": "C5 Amber Charm", "skuId": "1732151672922542928", "total": 456, "available": 454, "locked": 2, "alert": 0, "status": "ok"},
+        {"color": "C6 Water Wood Charm", "skuId": "1732151672922608464", "total": 291, "available": 291, "locked": 0, "alert": 0, "status": "ok"},
+        {"color": "C7 Spinel Charm", "skuId": "1732151672922674000", "total": 393, "available": 393, "locked": 0, "alert": 0, "status": "ok"},
+        {"color": "C8 Smoky Quartz Charm", "skuId": "1732151672922739536", "total": 315, "available": 315, "locked": 0, "alert": 0, "status": "ok"},
+        {"color": "C9 Beryl Charm", "skuId": "1732151672922805072", "total": 3454, "available": 3453, "locked": 1, "alert": 0, "status": "ok"},
+        {"color": "C10 Taaffeite Charm", "skuId": "1732151672922870608", "total": 706, "available": 706, "locked": 0, "alert": 0, "status": "ok"}
       ]
     },
     {
       "name": "Slide Up Dough Cheek",
       "skus": [
-        {
-          "color": "LOVE FLASH",
-          "skuId": "1732151697752429392",
-          "total": 526,
-          "available": 474,
-          "locked": 52,
-          "alert": 0,
-          "status": "ok"
-        },
-        {
-          "color": "SYRUP FLASH",
-          "skuId": "1732151697752691536",
-          "total": 521,
-          "available": 471,
-          "locked": 50,
-          "alert": 0,
-          "status": "ok"
-        },
-        {
-          "color": "GRAPE SIGNAL",
-          "skuId": "1732372285238514512",
-          "total": 550,
-          "available": 498,
-          "locked": 52,
-          "alert": 0,
-          "status": "ok"
-        },
-        {
-          "color": "MAUVE DIAL",
-          "skuId": "1732151697752494928",
-          "total": 571,
-          "available": 521,
-          "locked": 50,
-          "alert": 0,
-          "status": "ok"
-        },
-        {
-          "color": "HUG FLASH",
-          "skuId": "1732372285238580048",
-          "total": 570,
-          "available": 520,
-          "locked": 50,
-          "alert": 0,
-          "status": "ok"
-        },
-        {
-          "color": "TAP PINK",
-          "skuId": "1732151697752757072",
-          "total": 570,
-          "available": 520,
-          "locked": 50,
-          "alert": 0,
-          "status": "ok"
-        },
-        {
-          "color": "AUTUMN VIBE",
-          "skuId": "1732151697752167248",
-          "total": 568,
-          "available": 518,
-          "locked": 50,
-          "alert": 0,
-          "status": "ok"
-        },
-        {
-          "color": "TOUCH CORAL",
-          "skuId": "1732151697752822608",
-          "total": 583,
-          "available": 533,
-          "locked": 50,
-          "alert": 0,
-          "status": "ok"
-        },
-        {
-          "color": "ANY PINK",
-          "skuId": "1732151697752101712",
-          "total": 576,
-          "available": 526,
-          "locked": 50,
-          "alert": 0,
-          "status": "ok"
-        },
-        {
-          "color": "PLUM MESSAGE",
-          "skuId": "1732372285238645584",
-          "total": 574,
-          "available": 523,
-          "locked": 51,
-          "alert": 0,
-          "status": "ok"
-        },
-        {
-          "color": "MIRROR FLASH",
-          "skuId": "1732151697752560464",
-          "total": 587,
-          "available": 537,
-          "locked": 50,
-          "alert": 0,
-          "status": "ok"
-        },
-        {
-          "color": "CALL PEACH",
-          "skuId": "1732151697752232784",
-          "total": 594,
-          "available": 544,
-          "locked": 50,
-          "alert": 0,
-          "status": "ok"
-        }
+        {"color": "LOVE FLASH", "skuId": "1732151697752429392", "total": 524, "available": 524, "locked": 0, "alert": 0, "status": "ok"},
+        {"color": "SYRUP FLASH", "skuId": "1732151697752691536", "total": 521, "available": 521, "locked": 0, "alert": 0, "status": "ok"},
+        {"color": "MAUVE DIAL", "skuId": "1732151697752494928", "total": 571, "available": 571, "locked": 0, "alert": 0, "status": "ok"},
+        {"color": "GRAPE SIGNAL", "skuId": "1732372285238514512", "total": 548, "available": 548, "locked": 0, "alert": 0, "status": "ok"},
+        {"color": "HUG FLASH", "skuId": "1732372285238580048", "total": 570, "available": 570, "locked": 0, "alert": 0, "status": "ok"},
+        {"color": "TAP PINK", "skuId": "1732151697752757072", "total": 570, "available": 570, "locked": 0, "alert": 0, "status": "ok"},
+        {"color": "AUTUMN VIBE", "skuId": "1732151697752167248", "total": 568, "available": 568, "locked": 0, "alert": 0, "status": "ok"},
+        {"color": "PLUM MESSAGE", "skuId": "1732372285238645584", "total": 573, "available": 573, "locked": 0, "alert": 0, "status": "ok"},
+        {"color": "TOUCH CORAL", "skuId": "1732151697752822608", "total": 583, "available": 583, "locked": 0, "alert": 0, "status": "ok"},
+        {"color": "MIRROR FLASH", "skuId": "1732151697752560464", "total": 587, "available": 587, "locked": 0, "alert": 0, "status": "ok"},
+        {"color": "ANY PINK", "skuId": "1732151697752101712", "total": 576, "available": 576, "locked": 0, "alert": 0, "status": "ok"},
+        {"color": "CALL PEACH", "skuId": "1732151697752232784", "total": 594, "available": 594, "locked": 0, "alert": 0, "status": "ok"}
       ]
     },
     {
       "name": "SLIDE UP DOUGH CHEEK",
       "skus": [
-        {
-          "color": "MAUVE DIAL",
-          "skuId": "1732431293716730704",
-          "total": 473,
-          "available": 472,
-          "locked": 1,
-          "alert": 0,
-          "status": "ok"
-        },
-        {
-          "color": "PLUM MESSAGE",
-          "skuId": "1732431293716992848",
-          "total": 457,
-          "available": 457,
-          "locked": 0,
-          "alert": 0,
-          "status": "ok"
-        },
-        {
-          "color": "CALL PEACH",
-          "skuId": "1732431293716665168",
-          "total": 477,
-          "available": 477,
-          "locked": 0,
-          "alert": 0,
-          "status": "ok"
-        },
-        {
-          "color": "ANY PINK",
-          "skuId": "1732431293716534096",
-          "total": 463,
-          "available": 462,
-          "locked": 1,
-          "alert": 0,
-          "status": "ok"
-        },
-        {
-          "color": "TOUCH CORAL",
-          "skuId": "1732431293716861776",
-          "total": 457,
-          "available": 457,
-          "locked": 0,
-          "alert": 0,
-          "status": "ok"
-        },
-        {
-          "color": "TAP PINK",
-          "skuId": "1732431293716796240",
-          "total": 429,
-          "available": 429,
-          "locked": 0,
-          "alert": 0,
-          "status": "ok"
-        },
-        {
-          "color": "AUTUMN VIBE",
-          "skuId": "1732431293716599632",
-          "total": 473,
-          "available": 472,
-          "locked": 1,
-          "alert": 0,
-          "status": "ok"
-        }
+        {"color": "MAUVE DIAL", "skuId": "1732431293716730704", "total": 471, "available": 471, "locked": 0, "alert": 0, "status": "ok"},
+        {"color": "PLUM MESSAGE", "skuId": "1732431293716992848", "total": 455, "available": 455, "locked": 0, "alert": 0, "status": "ok"},
+        {"color": "TOUCH CORAL", "skuId": "1732431293716861776", "total": 457, "available": 457, "locked": 0, "alert": 0, "status": "ok"},
+        {"color": "TAP PINK", "skuId": "1732431293716796240", "total": 429, "available": 429, "locked": 0, "alert": 0, "status": "ok"},
+        {"color": "CALL PEACH", "skuId": "1732431293716665168", "total": 477, "available": 477, "locked": 0, "alert": 0, "status": "ok"},
+        {"color": "AUTUMN VIBE", "skuId": "1732431293716599632", "total": 471, "available": 471, "locked": 0, "alert": 0, "status": "ok"},
+        {"color": "ANY PINK", "skuId": "1732431293716534096", "total": 462, "available": 462, "locked": 0, "alert": 0, "status": "ok"}
       ]
     },
     {
       "name": "TULLE GLOSS",
       "skus": [
-        {
-          "color": "VOILE",
-          "skuId": "1732151602539696976",
-          "total": 577,
-          "available": 577,
-          "locked": 0,
-          "alert": 0,
-          "status": "ok"
-        },
-        {
-          "color": "SATIN",
-          "skuId": "1732151618225869648",
-          "total": 585,
-          "available": 585,
-          "locked": 0,
-          "alert": 0,
-          "status": "ok"
-        },
-        {
-          "color": "TUTU",
-          "skuId": "1732151602539500368",
-          "total": 577,
-          "available": 577,
-          "locked": 0,
-          "alert": 0,
-          "status": "ok"
-        },
-        {
-          "color": "ROBE",
-          "skuId": "1732151602539631440",
-          "total": 575,
-          "available": 575,
-          "locked": 0,
-          "alert": 0,
-          "status": "ok"
-        },
-        {
-          "color": "FRILL",
-          "skuId": "1732151618225935184",
-          "total": 586,
-          "available": 586,
-          "locked": 0,
-          "alert": 0,
-          "status": "ok"
-        },
-        {
-          "color": "SLIP",
-          "skuId": "1732151602539565904",
-          "total": 597,
-          "available": 597,
-          "locked": 0,
-          "alert": 0,
-          "status": "ok"
-        },
-        {
-          "color": "SILK",
-          "skuId": "1732151602539434832",
-          "total": 598,
-          "available": 598,
-          "locked": 0,
-          "alert": 0,
-          "status": "ok"
-        }
+        {"color": "VOILE", "skuId": "1732151602539696976", "total": 576, "available": 576, "locked": 0, "alert": 0, "status": "ok"},
+        {"color": "SATIN", "skuId": "1732151618225869648", "total": 585, "available": 584, "locked": 1, "alert": 0, "status": "ok"},
+        {"color": "ROBE", "skuId": "1732151602539631440", "total": 574, "available": 574, "locked": 0, "alert": 0, "status": "ok"},
+        {"color": "TUTU", "skuId": "1732151602539500368", "total": 577, "available": 577, "locked": 0, "alert": 0, "status": "ok"},
+        {"color": "SLIP", "skuId": "1732151602539565904", "total": 597, "available": 596, "locked": 1, "alert": 0, "status": "ok"},
+        {"color": "FRILL", "skuId": "1732151618225935184", "total": 586, "available": 586, "locked": 0, "alert": 0, "status": "ok"},
+        {"color": "SILK", "skuId": "1732151602539434832", "total": 598, "available": 598, "locked": 0, "alert": 0, "status": "ok"}
       ]
     },
     {
       "name": "ENTROPY Eyebrow Dye",
       "skus": [
-        {
-          "color": "Ash Brown",
-          "skuId": "1732384682934375248",
-          "total": 80,
-          "available": 79,
-          "locked": 1,
-          "alert": 0,
-          "status": "ok"
-        },
-        {
-          "color": "Beige Brown",
-          "skuId": "1732384682934440784",
-          "total": 521,
-          "available": 521,
-          "locked": 0,
-          "alert": 0,
-          "status": "ok"
-        },
-        {
-          "color": "Bleach",
-          "skuId": "1732384682934506320",
-          "total": 80,
-          "available": 80,
-          "locked": 0,
-          "alert": 0,
-          "status": "ok"
-        }
+        {"color": "Ash Brown", "skuId": "1732384682934375248", "total": 79, "available": 79, "locked": 0, "alert": 0, "status": "ok"},
+        {"color": "Beige Brown", "skuId": "1732384682934440784", "total": 520, "available": 519, "locked": 1, "alert": 0, "status": "ok"},
+        {"color": "Bleach", "skuId": "1732384682934506320", "total": 80, "available": 80, "locked": 0, "alert": 0, "status": "ok"}
       ]
     },
     {
       "name": "ENTROPY MAKEUP Glow Serum Body Highlighter",
       "skus": [
-        {
-          "color": "SUGAR LIT",
-          "skuId": "1732380718321013584",
-          "total": 235,
-          "available": 235,
-          "locked": 0,
-          "alert": 0,
-          "status": "ok"
-        },
-        {
-          "color": "HONEY LIT",
-          "skuId": "1732380718498812752",
-          "total": 394,
-          "available": 394,
-          "locked": 0,
-          "alert": 0,
-          "status": "ok"
-        },
-        {
-          "color": "HONEY LIT + BRUSH",
-          "skuId": "1732407930166219600",
-          "total": 585,
-          "available": 585,
-          "locked": 0,
-          "alert": 0,
-          "status": "ok"
-        },
-        {
-          "color": "SUGAR + HONEY + BRUSH",
-          "skuId": "1732407930166088528",
-          "total": 538,
-          "available": 538,
-          "locked": 0,
-          "alert": 0,
-          "status": "ok"
-        },
-        {
-          "color": "SUGAR LIT + BRUSH",
-          "skuId": "1732407930166154064",
-          "total": 585,
-          "available": 585,
-          "locked": 0,
-          "alert": 0,
-          "status": "ok"
-        }
+        {"color": "SUGAR LIT", "skuId": "1732380718321013584", "total": 235, "available": 235, "locked": 0, "alert": 0, "status": "ok"},
+        {"color": "HONEY LIT", "skuId": "1732380718498812752", "total": 394, "available": 394, "locked": 0, "alert": 0, "status": "ok"},
+        {"color": "HONEY LIT + BRUSH", "skuId": "1732407930166219600", "total": 585, "available": 585, "locked": 0, "alert": 0, "status": "ok"},
+        {"color": "SUGAR + HONEY + BRUSH", "skuId": "1732407930166088528", "total": 537, "available": 537, "locked": 0, "alert": 0, "status": "ok"},
+        {"color": "SUGAR LIT + BRUSH", "skuId": "1732407930166154064", "total": 584, "available": 584, "locked": 0, "alert": 0, "status": "ok"}
       ]
     },
     {
       "name": "ENTROPY MAKEUP Tough Brow Finisher",
       "skus": [
-        {
-          "color": "DARK LAVENDAR",
-          "skuId": "1732384638205137744",
-          "total": 275,
-          "available": 275,
-          "locked": 0,
-          "alert": 0,
-          "status": "ok"
-        },
-        {
-          "color": "MOCHA MOUSSE",
-          "skuId": "1732380727588721488",
-          "total": 282,
-          "available": 282,
-          "locked": 0,
-          "alert": 0,
-          "status": "ok"
-        },
-        {
-          "color": "TOAST",
-          "skuId": "1732380727588852560",
-          "total": 289,
-          "available": 289,
-          "locked": 0,
-          "alert": 0,
-          "status": "ok"
-        },
-        {
-          "color": "BUTTER CREAM",
-          "skuId": "1732380727588655952",
-          "total": 296,
-          "available": 296,
-          "locked": 0,
-          "alert": 0,
-          "status": "ok"
-        },
-        {
-          "color": "OATMEAL",
-          "skuId": "1732380727588787024",
-          "total": 295,
-          "available": 295,
-          "locked": 0,
-          "alert": 0,
-          "status": "ok"
-        }
+        {"color": "DARK LAVENDAR", "skuId": "1732384638205137744", "total": 274, "available": 274, "locked": 0, "alert": 0, "status": "ok"},
+        {"color": "MOCHA MOUSSE", "skuId": "1732380727588721488", "total": 282, "available": 282, "locked": 0, "alert": 0, "status": "ok"},
+        {"color": "TOAST", "skuId": "1732380727588852560", "total": 288, "available": 288, "locked": 0, "alert": 0, "status": "ok"},
+        {"color": "BUTTER CREAM", "skuId": "1732380727588655952", "total": 296, "available": 296, "locked": 0, "alert": 0, "status": "ok"},
+        {"color": "OATMEAL", "skuId": "1732380727588787024", "total": 295, "available": 295, "locked": 0, "alert": 0, "status": "ok"}
       ]
     },
     {
       "name": "ENTROPY MAKEUP Tough Brow Sculpture Pencil",
       "skus": [
-        {
-          "color": "Coconut",
-          "skuId": "1732380741437330256",
-          "total": 291,
-          "available": 291,
-          "locked": 0,
-          "alert": 0,
-          "status": "ok"
-        },
-        {
-          "color": "Walnut",
-          "skuId": "1732380741437461328",
-          "total": 272,
-          "available": 272,
-          "locked": 0,
-          "alert": 0,
-          "status": "ok"
-        },
-        {
-          "color": "Charcoal",
-          "skuId": "1732380738852524880",
-          "total": 283,
-          "available": 283,
-          "locked": 0,
-          "alert": 0,
-          "status": "ok"
-        },
-        {
-          "color": "Wit Beige",
-          "skuId": "1732380741437395792",
-          "total": 292,
-          "available": 292,
-          "locked": 0,
-          "alert": 0,
-          "status": "ok"
-        }
+        {"color": "Coconut", "skuId": "1732380741437330256", "total": 291, "available": 291, "locked": 0, "alert": 0, "status": "ok"},
+        {"color": "Walnut", "skuId": "1732380741437461328", "total": 271, "available": 271, "locked": 0, "alert": 0, "status": "ok"},
+        {"color": "Charcoal", "skuId": "1732380738852524880", "total": 281, "available": 281, "locked": 0, "alert": 0, "status": "ok"},
+        {"color": "Wit Beige", "skuId": "1732380741437395792", "total": 292, "available": 292, "locked": 0, "alert": 0, "status": "ok"}
       ]
     },
     {
       "name": "ENTROPY MAKEUP Organza Fit Spatula Foundation",
       "skus": [
-        {
-          "color": "22.8 - 3.53 ounces",
-          "skuId": "1732381610868642640",
-          "total": 71,
-          "available": 71,
-          "locked": 0,
-          "alert": 0,
-          "status": "ok"
-        },
-        {
-          "color": "25.3 - 3.53 ounces",
-          "skuId": "1732381610868708176",
-          "total": 79,
-          "available": 79,
-          "locked": 0,
-          "alert": 0,
-          "status": "ok"
-        },
-        {
-          "color": "21.1 - 3.53 ounces",
-          "skuId": "1732381610868577104",
-          "total": 91,
-          "available": 91,
-          "locked": 0,
-          "alert": 0,
-          "status": "ok"
-        },
-        {
-          "color": "19.8 - 3.53 ounces",
-          "skuId": "1732381610868511568",
-          "total": 91,
-          "available": 91,
-          "locked": 0,
-          "alert": 0,
-          "status": "ok"
-        }
+        {"color": "19.8 - 3.53 ounces", "skuId": "1732381610868511568", "total": 90, "available": 90, "locked": 0, "alert": 0, "status": "ok"},
+        {"color": "21.1 - 3.53 ounces", "skuId": "1732381610868577104", "total": 91, "available": 91, "locked": 0, "alert": 0, "status": "ok"},
+        {"color": "22.8 - 3.53 ounces", "skuId": "1732381610868642640", "total": 71, "available": 71, "locked": 0, "alert": 0, "status": "ok"},
+        {"color": "25.3 - 3.53 ounces", "skuId": "1732381610868708176", "total": 79, "available": 79, "locked": 0, "alert": 0, "status": "ok"}
       ]
     },
     {
       "name": "ENTROPY MAKEUP Cool Stick Body Highlighter Golden Hour",
       "skus": [
-        {
-          "color": "Default",
-          "skuId": "1732380695140602704",
-          "total": 280,
-          "available": 280,
-          "locked": 0,
-          "alert": 0,
-          "status": "ok"
-        }
+        {"color": "Default", "skuId": "1732380695140602704", "total": 278, "available": 278, "locked": 0, "alert": 0, "status": "ok"}
       ]
     },
     {
       "name": "[ENTROPY] Charm tint DUO",
       "skus": [
-        {
-          "color": "Neutral Pink Combo",
-          "skuId": "1732389259088401232",
-          "total": 323,
-          "available": 273,
-          "locked": 0,
-          "alert": 0,
-          "status": "ok"
-        },
-        {
-          "color": "Grape-Wine Combo",
-          "skuId": "1732329850635457360",
-          "total": 706,
-          "available": 656,
-          "locked": 0,
-          "alert": 0,
-          "status": "ok"
-        },
-        {
-          "color": "Berry Rosy Combo",
-          "skuId": "1732389259088466768",
-          "total": 329,
-          "available": 279,
-          "locked": 0,
-          "alert": 0,
-          "status": "ok"
-        },
-        {
-          "color": "Chocolate Mousse Combo",
-          "skuId": "1732329850635260752",
-          "total": 243,
-          "available": 193,
-          "locked": 0,
-          "alert": 0,
-          "status": "ok"
-        },
-        {
-          "color": "Spring Warm Tone Combo",
-          "skuId": "1732329850635195216",
-          "total": 273,
-          "available": 223,
-          "locked": 0,
-          "alert": 0,
-          "status": "ok"
-        }
+        {"color": "Neutral Pink Combo", "skuId": "1732389259088401232", "total": 322, "available": 322, "locked": 0, "alert": 0, "status": "ok"},
+        {"color": "Grape-Wine Combo", "skuId": "1732329850635457360", "total": 706, "available": 706, "locked": 0, "alert": 0, "status": "ok"},
+        {"color": "Berry Rosy Combo", "skuId": "1732389259088466768", "total": 327, "available": 327, "locked": 0, "alert": 0, "status": "ok"},
+        {"color": "Chocolate Mousse Combo", "skuId": "1732329850635260752", "total": 243, "available": 243, "locked": 0, "alert": 0, "status": "ok"},
+        {"color": "Spring Warm Tone Combo", "skuId": "1732329850635195216", "total": 272, "available": 272, "locked": 0, "alert": 0, "status": "ok"}
       ]
     },
     {
       "name": "[ENTROPY Official Shop] Charm Tint & Tulle Gloss Lip Duo",
       "skus": [
-        {
-          "color": "Pena(blurry) & Tutu",
-          "skuId": "1732270072136635216",
-          "total": 244,
-          "available": 194,
-          "locked": 0,
-          "alert": 0,
-          "status": "ok"
-        },
-        {
-          "color": "Beryl(glossy) & Robe",
-          "skuId": "1732270070790984528",
-          "total": 575,
-          "available": 575,
-          "locked": 0,
-          "alert": 0,
-          "status": "ok"
-        },
-        {
-          "color": "Pena(blurry) & Voile",
-          "skuId": "1732270070781809488",
-          "total": 244,
-          "available": 194,
-          "locked": 0,
-          "alert": 0,
-          "status": "ok"
-        },
-        {
-          "color": "Ruby & Frill",
-          "skuId": "1732270037310149456",
-          "total": 323,
-          "available": 273,
-          "locked": 0,
-          "alert": 0,
-          "status": "ok"
-        },
-        {
-          "color": "Opal(glossy) & Tutu",
-          "skuId": "1732270070560101200",
-          "total": 220,
-          "available": 170,
-          "locked": 0,
-          "alert": 0,
-          "status": "ok"
-        },
-        {
-          "color": "Smoky Quartz(glossy) & Satin",
-          "skuId": "1732270070781743952",
-          "total": 316,
-          "available": 266,
-          "locked": 0,
-          "alert": 0,
-          "status": "ok"
-        }
+        {"color": "Beryl(glossy) & Robe", "skuId": "1732270070790984528", "total": 574, "available": 574, "locked": 0, "alert": 0, "status": "ok"},
+        {"color": "Pena(blurry) & Tutu", "skuId": "1732270072136635216", "total": 242, "available": 242, "locked": 0, "alert": 0, "status": "ok"},
+        {"color": "Smoky Quartz(glossy) & Satin", "skuId": "1732270070781743952", "total": 315, "available": 315, "locked": 0, "alert": 0, "status": "ok"},
+        {"color": "Ruby & Frill", "skuId": "1732270037310149456", "total": 322, "available": 322, "locked": 0, "alert": 0, "status": "ok"},
+        {"color": "Pena(blurry) & Voile", "skuId": "1732270070781809488", "total": 242, "available": 242, "locked": 0, "alert": 0, "status": "ok"},
+        {"color": "Opal(glossy) & Tutu", "skuId": "1732270070560101200", "total": 220, "available": 220, "locked": 0, "alert": 0, "status": "ok"}
       ]
     }
   ]
