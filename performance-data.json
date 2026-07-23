@@ -1,140 +1,140 @@
 {
-  "updatedAt": "Jul 8, 2026",
+  "updatedAt": "Jul 22, 2026",
   "weekly": {
-    "period": "Jun 30 – Jul 6, 2026",
+    "period": "Jul 14 – Jul 20, 2026",
     "kpi": {
-      "affiliateGmv": 1217.02,
-      "itemsSold": 78,
-      "estCommission": 185.53,
-      "activeAffiliates": 6242
+      "affiliateGmv": 2712.75,
+      "itemsSold": 141,
+      "estCommission": 278.53,
+      "activeAffiliates": 4523
     },
     "creators": [
       {
         "name": "@findsbyrachelp1",
-        "followers": "6.31K",
-        "gmv": 523.95,
-        "orders": 31,
-        "commission": 81.22,
-        "ctr": 3.3
-      },
-      {
-        "name": "@cherrieevee",
-        "followers": "47.27K",
-        "gmv": 127.72,
-        "orders": 6,
-        "commission": 14.4,
-        "ctr": 2.6
-      },
-      {
-        "name": "@ngocng_8",
-        "followers": "13.12K",
-        "gmv": 67.42,
-        "orders": 2,
-        "commission": 11.63,
-        "ctr": 4.3
+        "followers": "6.30K",
+        "gmv": 1038.64,
+        "orders": 52,
+        "commission": 94.6,
+        "ctr": 2.8
       },
       {
         "name": "@theraysfinds",
         "followers": "29.89K",
-        "gmv": 62.59,
-        "orders": 4,
-        "commission": 12.53,
-        "ctr": 1.5
+        "gmv": 1002.26,
+        "orders": 47,
+        "commission": 78.32,
+        "ctr": 3.3
       },
       {
-        "name": "@bladehaus_",
-        "followers": "12.33K",
-        "gmv": 50.8,
-        "orders": 4,
-        "commission": 0.05,
-        "ctr": 5.7
+        "name": "@cherrieevee",
+        "followers": "47.38K",
+        "gmv": 157.49,
+        "orders": 8,
+        "commission": 12.56,
+        "ctr": 2.2
+      },
+      {
+        "name": "@minjuugc",
+        "followers": "31.81K",
+        "gmv": 68.1,
+        "orders": 3,
+        "commission": 13.55,
+        "ctr": 3.5
+      },
+      {
+        "name": "@simplyglowlyly",
+        "followers": "2.50K",
+        "gmv": 66,
+        "orders": 2,
+        "commission": 7.7,
+        "ctr": 3.7
       }
     ],
     "topVideos": [
       {
+        "title": "actually such a good tint base 👄 looks just like the natural lip but better 💅 #charmtintbaseblurryline #liptint #lipshading #lipbase",
+        "creator": "@theraysfinds",
+        "viewers": 14630,
+        "gmv": 983.78,
+        "url": "https://www.tiktok.com/@theraysfinds/video/7651094446016122125"
+      },
+      {
+        "title": "This is shade (G5) for those wondering!!",
+        "creator": "@findsbyrachelp1",
+        "viewers": 21950,
+        "gmv": 510.07,
+        "url": "https://www.tiktok.com/@findsbyrachelp1/video/7652202314274540830"
+      },
+      {
         "title": "Lip shading whoooo (using shade G5 topaz gem)",
         "creator": "@findsbyrachelp1",
-        "viewers": 4570,
-        "gmv": 218.14,
+        "viewers": 12960,
+        "gmv": 307.47,
         "url": "https://www.tiktok.com/@findsbyrachelp1/video/7648315198255729951"
       },
       {
-        "title": "Using the shade g5! #lipcombo #lipstain #lipstick #makeup",
+        "title": "Wearing shade “G5”",
         "creator": "@findsbyrachelp1",
-        "viewers": 1600,
-        "gmv": 118.83,
-        "url": "https://www.tiktok.com/@findsbyrachelp1/video/7644371292715535647"
+        "viewers": 2810,
+        "gmv": 130.9,
+        "url": "https://www.tiktok.com/@findsbyrachelp1/video/7647691398971542815"
       },
       {
-        "title": "wearing violet gem",
-        "creator": "@findsbyrachelp1",
-        "viewers": 2330,
-        "gmv": 105.69,
-        "url": "https://www.tiktok.com/@findsbyrachelp1/video/7657249407280188703"
-      },
-      {
-        "title": "lip & cheek duo <333 #entropy #entropycharmtint #entropyslideupdoughcheek #lipandcheek #kbeauty @Entropy US",
-        "creator": "@cherrieevee",
-        "viewers": 785,
-        "gmv": 66.19,
-        "url": "https://www.tiktok.com/@cherrieevee/video/7649822432504646943"
-      },
-      {
-        "title": "actually such a good tint base 👄 looks just like the natural lip but better 💅 #charmtintbaseblurryline #liptint #lipshading #lipbase",
-        "creator": "@theraysfinds",
-        "viewers": 171,
-        "gmv": 62.59,
-        "url": "https://www.tiktok.com/@theraysfinds/video/7651094446016122125"
+        "title": "Meet your new favorite travel essential. This entropy lip tint features a chic keychain design for easy on-the-go touch-ups. The lightweight formula delivers a dewy, high-shine finish that works beautifully on both lips and cheeks. This is what yunjin from le sserafim uses on her lips #entropy #kbeauty #yunjin #nudelips #lesserafim",
+        "creator": "@simplyglowlyly",
+        "viewers": 612,
+        "gmv": 66,
+        "url": "https://www.tiktok.com/@simplyglowlyly/video/7638447045203807518"
       }
     ]
   },
   "monthly": {
-    "period": "Jun 9 – Jul 6, 2026",
+    "period": "Jun 23 – Jul 20, 2026",
     "kpi": {
-      "affiliateGmv": 31648.91,
-      "itemsSold": 3592,
-      "estCommission": 5992.48,
-      "activeAffiliates": 16459
+      "affiliateGmv": 7480.3,
+      "itemsSold": 685,
+      "estCommission": 1251.26,
+      "activeAffiliates": 13496
     },
     "creators": [
       {
         "name": "@findsbyrachelp1",
         "followers": "6.32K",
-        "gmv": 8027.32,
-        "orders": 606,
-        "commission": 945.21,
-        "ctr": 2.3
+        "gmv": 2069.42,
+        "orders": 120,
+        "commission": 248.85,
+        "ctr": 2.8
       },
       {
         "name": "@theraysfinds",
         "followers": "29.90K",
-        "gmv": 3548.42,
-        "orders": 257,
-        "commission": 340.72,
-        "ctr": 3.1
+        "gmv": 1279.99,
+        "orders": 65,
+        "commission": 144.9,
+        "ctr": 3.3
       },
       {
         "name": "@cherrieevee",
-        "followers": "47.27K",
-        "gmv": 3213.43,
-        "orders": 400,
-        "commission": 540.19,
-        "ctr": 1.1
+        "followers": "47.38K",
+        "gmv": 853.81,
+        "orders": 78,
+        "commission": 121.96,
+        "ctr": 1.6
       },
       {
-        "name": "@auraofbellaa",
-        "followers": "5.98K",
-        "gmv": 1017.76,
-        "orders": 115,
-        "commission": 147.74,
-        "ctr": 2.4
+        "name": "@maiii.finds",
+        "followers": "6.22K",
+        "gmv": 186.18,
+        "orders": 17,
+        "commission": 30.3,
+        "ctr": 2.2
       },
       {
-        "name": "@sj.gonzalez_",
-        "followers": "17.90K",
-        "gmv": 990.12,
-        "orders": 148,
-        "commission": 253.42,
+        "name": "@minjuugc",
+        "followers": "31.81K",
+        "gmv": 178.89,
+        "orders": 14,
+        "commission": 40.53,
         "ctr": 2.7
       }
     ],
@@ -142,37 +142,37 @@
       {
         "title": "actually such a good tint base 👄 looks just like the natural lip but better 💅 #charmtintbaseblurryline #liptint #lipshading #lipbase",
         "creator": "@theraysfinds",
-        "viewers": 130270,
-        "gmv": 3428.52,
+        "viewers": 16980,
+        "gmv": 1229.69,
         "url": "https://www.tiktok.com/@theraysfinds/video/7651094446016122125"
       },
       {
         "title": "Lip shading whoooo (using shade G5 topaz gem)",
         "creator": "@findsbyrachelp1",
-        "viewers": 393940,
-        "gmv": 3133.99,
+        "viewers": 35820,
+        "gmv": 733.2,
         "url": "https://www.tiktok.com/@findsbyrachelp1/video/7648315198255729951"
       },
       {
         "title": "This is shade (G5) for those wondering!!",
         "creator": "@findsbyrachelp1",
-        "viewers": 299670,
-        "gmv": 2464.7,
+        "viewers": 32710,
+        "gmv": 612.33,
         "url": "https://www.tiktok.com/@findsbyrachelp1/video/7652202314274540830"
       },
       {
         "title": "love the packaging bc u can clip it on ur bag!! #entropy #entropycharmtint #liptint #kbeauty #tiktokshopstockup @Entropy US",
         "creator": "@cherrieevee",
-        "viewers": 404190,
-        "gmv": 1447.63,
+        "viewers": 47690,
+        "gmv": 266.77,
         "url": "https://www.tiktok.com/@cherrieevee/video/7632575812125936926"
       },
       {
-        "title": "(No caption)",
-        "creator": "@auraofbellaa",
-        "viewers": 383160,
-        "gmv": 1017.76,
-        "url": "https://www.tiktok.com/@auraofbellaa/video/7645128826149686559"
+        "title": "Using the shade g5! #lipcombo #lipstain #lipstick #makeup",
+        "creator": "@findsbyrachelp1",
+        "viewers": 7210,
+        "gmv": 204.7,
+        "url": "https://www.tiktok.com/@findsbyrachelp1/video/7644371292715535647"
       }
     ]
   }
