@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-30",
+  "updatedAt": "2026-07-31",
   "products": [
     {
       "name": "CHARM TINT Blurry Base Line",
@@ -43,9 +43,9 @@
         {
           "color": "G5 Topaz Gem",
           "skuId": "1732151629945017168",
-          "total": 2332,
-          "available": 2323,
-          "locked": 9,
+          "total": 2326,
+          "available": 2320,
+          "locked": 6,
           "alert": 0,
           "status": "ok"
         },
@@ -53,16 +53,16 @@
           "color": "G6 Poudre Gem",
           "skuId": "1732151629945082704",
           "total": 183,
-          "available": 183,
-          "locked": 0,
+          "available": 181,
+          "locked": 2,
           "alert": 0,
           "status": "ok"
         },
         {
           "color": "G7 Pena Gem",
           "skuId": "1732151629945148240",
-          "total": 230,
-          "available": 229,
+          "total": 229,
+          "available": 228,
           "locked": 1,
           "alert": 0,
           "status": "ok"
@@ -71,8 +71,8 @@
           "color": "G8 Bronze Gem",
           "skuId": "1732151629945213776",
           "total": 501,
-          "available": 501,
-          "locked": 0,
+          "available": 500,
+          "locked": 1,
           "alert": 0,
           "status": "ok"
         },
@@ -138,8 +138,8 @@
         {
           "color": "C5 Amber Charm",
           "skuId": "1732151672922542928",
-          "total": 446,
-          "available": 445,
+          "total": 445,
+          "available": 444,
           "locked": 1,
           "alert": 0,
           "status": "ok"
@@ -156,9 +156,9 @@
         {
           "color": "C7 Spinel Charm",
           "skuId": "1732151672922674000",
-          "total": 389,
+          "total": 388,
           "available": 388,
-          "locked": 1,
+          "locked": 0,
           "alert": 0,
           "status": "ok"
         },
@@ -174,9 +174,9 @@
         {
           "color": "C9 Beryl Charm",
           "skuId": "1732151672922805072",
-          "total": 3448,
-          "available": 3445,
-          "locked": 3,
+          "total": 3445,
+          "available": 3444,
+          "locked": 1,
           "alert": 0,
           "status": "ok"
         },
@@ -308,6 +308,15 @@
       "name": "SLIDE UP DOUGH CHEEK",
       "skus": [
         {
+          "color": "PLUM MESSAGE",
+          "skuId": "1732431293716992848",
+          "total": 455,
+          "available": 454,
+          "locked": 1,
+          "alert": 0,
+          "status": "ok"
+        },
+        {
           "color": "TAP PINK",
           "skuId": "1732431293716796240",
           "total": 428,
@@ -339,15 +348,6 @@
           "skuId": "1732431293716599632",
           "total": 470,
           "available": 470,
-          "locked": 0,
-          "alert": 0,
-          "status": "ok"
-        },
-        {
-          "color": "PLUM MESSAGE",
-          "skuId": "1732431293716992848",
-          "total": 455,
-          "available": 455,
           "locked": 0,
           "alert": 0,
           "status": "ok"
@@ -528,9 +528,9 @@
         {
           "color": "DARK LAVENDAR",
           "skuId": "1732384638205137744",
-          "total": 274,
+          "total": 273,
           "available": 273,
-          "locked": 1,
+          "locked": 0,
           "alert": 0,
           "status": "ok"
         },
@@ -578,9 +578,9 @@
         {
           "color": "Charcoal",
           "skuId": "1732380738852524880",
-          "total": 281,
+          "total": 280,
           "available": 280,
-          "locked": 1,
+          "locked": 0,
           "alert": 0,
           "status": "ok"
         },
@@ -672,19 +672,19 @@
       "name": "[ENTROPY] Charm tint DUO",
       "skus": [
         {
-          "color": "Grape-Wine Combo",
-          "skuId": "1732329850635457360",
-          "total": 704,
-          "available": 704,
+          "color": "Berry Rosy Combo",
+          "skuId": "1732389259088466768",
+          "total": 323,
+          "available": 323,
           "locked": 0,
           "alert": 0,
           "status": "ok"
         },
         {
-          "color": "Berry Rosy Combo",
-          "skuId": "1732389259088466768",
-          "total": 323,
-          "available": 323,
+          "color": "Grape-Wine Combo",
+          "skuId": "1732329850635457360",
+          "total": 704,
+          "available": 704,
           "locked": 0,
           "alert": 0,
           "status": "ok"
@@ -733,8 +733,8 @@
         {
           "color": "Pena(blurry) & Voile",
           "skuId": "1732270070781809488",
-          "total": 229,
-          "available": 229,
+          "total": 228,
+          "available": 228,
           "locked": 0,
           "alert": 0,
           "status": "ok"
@@ -742,8 +742,8 @@
         {
           "color": "Pena(blurry) & Tutu",
           "skuId": "1732270072136635216",
-          "total": 229,
-          "available": 229,
+          "total": 228,
+          "available": 228,
           "locked": 0,
           "alert": 0,
           "status": "ok"
