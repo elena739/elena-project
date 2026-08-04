@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-31",
+  "updatedAt": "2026-08-04",
   "products": [
     {
       "name": "CHARM TINT Blurry Base Line",
@@ -17,8 +17,8 @@
           "color": "G2 Coral Gem",
           "skuId": "1732151629944820560",
           "total": 499,
-          "available": 499,
-          "locked": 0,
+          "available": 498,
+          "locked": 1,
           "alert": 0,
           "status": "ok"
         },
@@ -35,17 +35,17 @@
           "color": "G4 Garnet Gem",
           "skuId": "1732151629944951632",
           "total": 241,
-          "available": 241,
-          "locked": 0,
+          "available": 240,
+          "locked": 1,
           "alert": 0,
           "status": "ok"
         },
         {
           "color": "G5 Topaz Gem",
           "skuId": "1732151629945017168",
-          "total": 2326,
-          "available": 2320,
-          "locked": 6,
+          "total": 2322,
+          "available": 2300,
+          "locked": 22,
           "alert": 0,
           "status": "ok"
         },
@@ -62,17 +62,17 @@
           "color": "G7 Pena Gem",
           "skuId": "1732151629945148240",
           "total": 229,
-          "available": 228,
-          "locked": 1,
+          "available": 227,
+          "locked": 2,
           "alert": 0,
           "status": "ok"
         },
         {
           "color": "G8 Bronze Gem",
           "skuId": "1732151629945213776",
-          "total": 501,
-          "available": 500,
-          "locked": 1,
+          "total": 500,
+          "available": 498,
+          "locked": 2,
           "alert": 0,
           "status": "ok"
         },
@@ -80,16 +80,16 @@
           "color": "G9 RhodiaGem",
           "skuId": "1732151629945279312",
           "total": 323,
-          "available": 323,
-          "locked": 0,
+          "available": 321,
+          "locked": 2,
           "alert": 0,
           "status": "ok"
         },
         {
           "color": "G10 VioletGem",
           "skuId": "1732151629945344848",
-          "total": 484,
-          "available": 483,
+          "total": 483,
+          "available": 482,
           "locked": 1,
           "alert": 0,
           "status": "ok"
@@ -121,8 +121,8 @@
           "color": "C3 Ruby Charm",
           "skuId": "1732151672922411856",
           "total": 318,
-          "available": 318,
-          "locked": 0,
+          "available": 317,
+          "locked": 1,
           "alert": 0,
           "status": "ok"
         },
@@ -139,8 +139,8 @@
           "color": "C5 Amber Charm",
           "skuId": "1732151672922542928",
           "total": 445,
-          "available": 444,
-          "locked": 1,
+          "available": 440,
+          "locked": 5,
           "alert": 0,
           "status": "ok"
         },
@@ -148,8 +148,8 @@
           "color": "C6 Water Wood Charm",
           "skuId": "1732151672922608464",
           "total": 290,
-          "available": 290,
-          "locked": 0,
+          "available": 289,
+          "locked": 1,
           "alert": 0,
           "status": "ok"
         },
@@ -166,8 +166,8 @@
           "color": "C8 Smoky Quartz Charm",
           "skuId": "1732151672922739536",
           "total": 314,
-          "available": 314,
-          "locked": 0,
+          "available": 313,
+          "locked": 1,
           "alert": 0,
           "status": "ok"
         },
@@ -175,8 +175,8 @@
           "color": "C9 Beryl Charm",
           "skuId": "1732151672922805072",
           "total": 3445,
-          "available": 3444,
-          "locked": 1,
+          "available": 3441,
+          "locked": 4,
           "alert": 0,
           "status": "ok"
         },
@@ -213,15 +213,6 @@
           "status": "ok"
         },
         {
-          "color": "AUTUMN VIBE",
-          "skuId": "1732151697752167248",
-          "total": 568,
-          "available": 568,
-          "locked": 0,
-          "alert": 0,
-          "status": "ok"
-        },
-        {
           "color": "TAP PINK",
           "skuId": "1732151697752757072",
           "total": 568,
@@ -253,6 +244,15 @@
           "skuId": "1732151697752494928",
           "total": 571,
           "available": 571,
+          "locked": 0,
+          "alert": 0,
+          "status": "ok"
+        },
+        {
+          "color": "AUTUMN VIBE",
+          "skuId": "1732151697752167248",
+          "total": 568,
+          "available": 568,
           "locked": 0,
           "alert": 0,
           "status": "ok"
@@ -308,11 +308,20 @@
       "name": "SLIDE UP DOUGH CHEEK",
       "skus": [
         {
+          "color": "AUTUMN VIBE",
+          "skuId": "1732431293716599632",
+          "total": 470,
+          "available": 469,
+          "locked": 1,
+          "alert": 0,
+          "status": "ok"
+        },
+        {
           "color": "PLUM MESSAGE",
           "skuId": "1732431293716992848",
-          "total": 455,
+          "total": 454,
           "available": 454,
-          "locked": 1,
+          "locked": 0,
           "alert": 0,
           "status": "ok"
         },
@@ -339,15 +348,6 @@
           "skuId": "1732431293716861776",
           "total": 456,
           "available": 456,
-          "locked": 0,
-          "alert": 0,
-          "status": "ok"
-        },
-        {
-          "color": "AUTUMN VIBE",
-          "skuId": "1732431293716599632",
-          "total": 470,
-          "available": 470,
           "locked": 0,
           "alert": 0,
           "status": "ok"
@@ -447,8 +447,8 @@
           "color": "Ash Brown",
           "skuId": "1732384682934375248",
           "total": 74,
-          "available": 74,
-          "locked": 0,
+          "available": 73,
+          "locked": 1,
           "alert": 0,
           "status": "ok"
         },
@@ -476,15 +476,6 @@
       "name": "ENTROPY MAKEUP Glow Serum Body Highlighter",
       "skus": [
         {
-          "color": "SUGAR LIT",
-          "skuId": "1732380718321013584",
-          "total": 235,
-          "available": 235,
-          "locked": 0,
-          "alert": 0,
-          "status": "ok"
-        },
-        {
           "color": "HONEY LIT",
           "skuId": "1732380718498812752",
           "total": 394,
@@ -503,10 +494,10 @@
           "status": "ok"
         },
         {
-          "color": "SUGAR + HONEY + BRUSH",
-          "skuId": "1732407930166088528",
-          "total": 537,
-          "available": 537,
+          "color": "SUGAR LIT",
+          "skuId": "1732380718321013584",
+          "total": 235,
+          "available": 235,
           "locked": 0,
           "alert": 0,
           "status": "ok"
@@ -516,6 +507,15 @@
           "skuId": "1732407930166154064",
           "total": 584,
           "available": 584,
+          "locked": 0,
+          "alert": 0,
+          "status": "ok"
+        },
+        {
+          "color": "SUGAR + HONEY + BRUSH",
+          "skuId": "1732407930166088528",
+          "total": 537,
+          "available": 537,
           "locked": 0,
           "alert": 0,
           "status": "ok"
@@ -672,15 +672,6 @@
       "name": "[ENTROPY] Charm tint DUO",
       "skus": [
         {
-          "color": "Berry Rosy Combo",
-          "skuId": "1732389259088466768",
-          "total": 323,
-          "available": 323,
-          "locked": 0,
-          "alert": 0,
-          "status": "ok"
-        },
-        {
           "color": "Grape-Wine Combo",
           "skuId": "1732329850635457360",
           "total": 704,
@@ -690,10 +681,10 @@
           "status": "ok"
         },
         {
-          "color": "Neutral Pink Combo",
-          "skuId": "1732389259088401232",
-          "total": 318,
-          "available": 318,
+          "color": "Berry Rosy Combo",
+          "skuId": "1732389259088466768",
+          "total": 321,
+          "available": 321,
           "locked": 0,
           "alert": 0,
           "status": "ok"
@@ -701,8 +692,8 @@
         {
           "color": "Chocolate Mousse Combo",
           "skuId": "1732329850635260752",
-          "total": 241,
-          "available": 241,
+          "total": 240,
+          "available": 240,
           "locked": 0,
           "alert": 0,
           "status": "ok"
@@ -712,6 +703,15 @@
           "skuId": "1732329850635195216",
           "total": 270,
           "available": 270,
+          "locked": 0,
+          "alert": 0,
+          "status": "ok"
+        },
+        {
+          "color": "Neutral Pink Combo",
+          "skuId": "1732389259088401232",
+          "total": 317,
+          "available": 317,
           "locked": 0,
           "alert": 0,
           "status": "ok"
@@ -731,19 +731,10 @@
           "status": "ok"
         },
         {
-          "color": "Pena(blurry) & Voile",
-          "skuId": "1732270070781809488",
-          "total": 228,
-          "available": 228,
-          "locked": 0,
-          "alert": 0,
-          "status": "ok"
-        },
-        {
-          "color": "Pena(blurry) & Tutu",
-          "skuId": "1732270072136635216",
-          "total": 228,
-          "available": 228,
+          "color": "Smoky Quartz(glossy) & Satin",
+          "skuId": "1732270070781743952",
+          "total": 313,
+          "available": 313,
           "locked": 0,
           "alert": 0,
           "status": "ok"
@@ -751,8 +742,26 @@
         {
           "color": "Ruby & Frill",
           "skuId": "1732270037310149456",
-          "total": 318,
-          "available": 318,
+          "total": 317,
+          "available": 317,
+          "locked": 0,
+          "alert": 0,
+          "status": "ok"
+        },
+        {
+          "color": "Pena(blurry) & Voile",
+          "skuId": "1732270070781809488",
+          "total": 227,
+          "available": 227,
+          "locked": 0,
+          "alert": 0,
+          "status": "ok"
+        },
+        {
+          "color": "Pena(blurry) & Tutu",
+          "skuId": "1732270072136635216",
+          "total": 227,
+          "available": 227,
           "locked": 0,
           "alert": 0,
           "status": "ok"
@@ -762,15 +771,6 @@
           "skuId": "1732270070560101200",
           "total": 216,
           "available": 216,
-          "locked": 0,
-          "alert": 0,
-          "status": "ok"
-        },
-        {
-          "color": "Smoky Quartz(glossy) & Satin",
-          "skuId": "1732270070781743952",
-          "total": 314,
-          "available": 314,
           "locked": 0,
           "alert": 0,
           "status": "ok"
