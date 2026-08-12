@@ -1,177 +1,177 @@
 {
-  "updatedAt": "Aug 5, 2026",
+  "updatedAt": "Aug 12, 2026",
   "weekly": {
-    "period": "Jul 27 – Aug 2, 2026",
+    "period": "Aug 4 – Aug 10, 2026",
     "kpi": {
-      "affiliateGmv": 1040.12,
-      "itemsSold": 53,
-      "estCommission": 132.34,
-      "activeAffiliates": 15
+      "affiliateGmv": 333.8,
+      "itemsSold": 16,
+      "estCommission": 59.26,
+      "activeAffiliates": 7
     },
     "creators": [
       {
         "name": "@findsbyrachelp1",
-        "followers": "6.2K",
-        "gmv": 335.3,
-        "orders": 17,
-        "commission": 30.9,
+        "followers": "6.35K",
+        "gmv": 163.88,
+        "orders": 8,
+        "commission": 29.25,
         "ctr": 3.2
       },
       {
-        "name": "@theraysfinds",
-        "followers": "24.5K",
-        "gmv": 288.6,
-        "orders": 12,
-        "commission": 31.2,
-        "ctr": 7.8
+        "name": "@simplyglowlyly",
+        "followers": "2.66K",
+        "gmv": 54.29,
+        "orders": 3,
+        "commission": 9.9,
+        "ctr": 1.9
       },
       {
-        "name": "@auraofbellaa",
-        "followers": "5.7K",
-        "gmv": 66,
-        "orders": 2,
-        "commission": 7,
-        "ctr": 1.1
+        "name": "@yonny_yy",
+        "followers": "32.08K",
+        "gmv": 33.91,
+        "orders": 1,
+        "commission": 5.61,
+        "ctr": 7.4
       },
       {
         "name": "@cherrieevee",
-        "followers": "40.3K",
-        "gmv": 42.7,
-        "orders": 2,
-        "commission": 8.8,
-        "ctr": 0.4
+        "followers": "47.43K",
+        "gmv": 22,
+        "orders": 1,
+        "commission": 4.4,
+        "ctr": 3.4
       },
       {
-        "name": "@alana.lyy",
-        "followers": "9.8K",
-        "gmv": 42.2,
-        "orders": 2,
-        "commission": 5.7,
-        "ctr": 7.1
+        "name": "@theraysfinds",
+        "followers": "29.88K",
+        "gmv": 22,
+        "orders": 1,
+        "commission": 4.4,
+        "ctr": 2.1
       }
     ],
     "topVideos": [
       {
-        "title": "actually such a good tint base 👄 looks just like the natural lip but better 💅 #charmtintbaseblurryline #liptint #lipshading #lipbase",
-        "creator": "@theraysfinds",
-        "viewers": 5310,
-        "gmv": 418.35,
-        "url": "https://www.tiktok.com/@theraysfinds/video/7651094446016122125"
-      },
-      {
-        "title": "This is shade (G5) for those wondering!!",
+        "title": "Using the shade g5! #lipcombo #lipstain #lipstick #makeup",
         "creator": "@findsbyrachelp1",
-        "viewers": 6690,
-        "gmv": 162.07,
-        "url": "https://www.tiktok.com/@findsbyrachelp1/video/7652202314274540830"
+        "viewers": 392,
+        "gmv": 41.4,
+        "url": "https://www.tiktok.com/@findsbyrachelp1/video/7644371292715535647"
       },
       {
         "title": "Lip shading whoooo (using shade G5 topaz gem)",
         "creator": "@findsbyrachelp1",
-        "viewers": 4990,
-        "gmv": 103.87,
+        "viewers": 1630,
+        "gmv": 41,
         "url": "https://www.tiktok.com/@findsbyrachelp1/video/7648315198255729951"
       },
       {
-        "title": "Untitled video",
-        "creator": "@auraofbellaa",
-        "viewers": 3530,
-        "gmv": 66,
-        "url": "https://www.tiktok.com/@auraofbellaa/video/7645128826149686559"
+        "title": "The lip tint keychain you've seen everywhere is finally here. Meet the entropy lip tint for that perfect dewy finish.",
+        "creator": "@simplyglowlyly",
+        "viewers": 37,
+        "gmv": 40.79,
+        "url": "https://www.tiktok.com/@simplyglowlyly/video/7637594149239131423"
       },
       {
         "title": "Wearing topaz gem G5",
         "creator": "@findsbyrachelp1",
-        "viewers": 483,
-        "gmv": 42,
+        "viewers": 284,
+        "gmv": 38.5,
         "url": "https://www.tiktok.com/@findsbyrachelp1/video/7651006716368162078"
+      },
+      {
+        "title": "Dyeing my brows! @Entropy US @ENTROPY Makeup #ENTROPY #browdye #browtutorial #kbeauty #makeup",
+        "creator": "@yonny_yy",
+        "viewers": 207,
+        "gmv": 33.91,
+        "url": "https://www.tiktok.com/@yonny_yy/video/7647329208045292814"
       }
     ]
   },
   "monthly": {
-    "period": "Jul 4 – Aug 2, 2026",
+    "period": "Jul 14 – Aug 10, 2026",
     "kpi": {
-      "affiliateGmv": 6206.36,
-      "itemsSold": 333,
-      "estCommission": 738.52,
-      "activeAffiliates": 49
+      "affiliateGmv": 5674.08,
+      "itemsSold": 291,
+      "estCommission": 649.43,
+      "activeAffiliates": 43
     },
     "creators": [
       {
         "name": "@findsbyrachelp1",
-        "followers": "6.2K",
-        "gmv": 2526.22,
-        "orders": 127,
-        "commission": 259.22,
-        "ctr": 3.7
+        "followers": "6.35K",
+        "gmv": 2298.2,
+        "orders": 112,
+        "commission": 238.9,
+        "ctr": 2.7
       },
       {
         "name": "@theraysfinds",
-        "followers": "24.5K",
-        "gmv": 1709.08,
-        "orders": 78,
-        "commission": 158.2,
-        "ctr": 8.4
+        "followers": "29.89K",
+        "gmv": 1806.65,
+        "orders": 81,
+        "commission": 162.38,
+        "ctr": 3.1
       },
       {
         "name": "@cherrieevee",
-        "followers": "40.3K",
-        "gmv": 385.9,
-        "orders": 21,
-        "commission": 46.9,
-        "ctr": 1
-      },
-      {
-        "name": "@alana.lyy",
-        "followers": "9.8K",
-        "gmv": 133.6,
-        "orders": 7,
-        "commission": 24,
-        "ctr": 4.1
+        "followers": "47.43K",
+        "gmv": 280.92,
+        "orders": 14,
+        "commission": 29.54,
+        "ctr": 2.4
       },
       {
         "name": "@simplyglowlyly",
-        "followers": "2.4K",
-        "gmv": 104.9,
-        "orders": 4,
-        "commission": 13.8,
-        "ctr": 1.4
+        "followers": "2.66K",
+        "gmv": 140.53,
+        "orders": 6,
+        "commission": 20.9,
+        "ctr": 3.2
+      },
+      {
+        "name": "@alana.lyy",
+        "followers": "10.67K",
+        "gmv": 102.19,
+        "orders": 5,
+        "commission": 17.72,
+        "ctr": 3.6
       }
     ],
     "topVideos": [
       {
         "title": "actually such a good tint base 👄 looks just like the natural lip but better 💅 #charmtintbaseblurryline #liptint #lipshading #lipbase",
         "creator": "@theraysfinds",
-        "viewers": 25820,
-        "gmv": 1762.9,
+        "viewers": 26280,
+        "gmv": 1788.17,
         "url": "https://www.tiktok.com/@theraysfinds/video/7651094446016122125"
       },
       {
         "title": "This is shade (G5) for those wondering!!",
         "creator": "@findsbyrachelp1",
-        "viewers": 45770,
-        "gmv": 1027.54,
+        "viewers": 43450,
+        "gmv": 1014.12,
         "url": "https://www.tiktok.com/@findsbyrachelp1/video/7652202314274540830"
       },
       {
         "title": "Lip shading whoooo (using shade G5 topaz gem)",
         "creator": "@findsbyrachelp1",
-        "viewers": 33400,
-        "gmv": 722.28,
+        "viewers": 24310,
+        "gmv": 687.68,
         "url": "https://www.tiktok.com/@findsbyrachelp1/video/7648315198255729951"
       },
       {
-        "title": "Wearing shade \"G5\"",
+        "title": "Wearing shade “G5”",
         "creator": "@findsbyrachelp1",
-        "viewers": 7290,
-        "gmv": 243.9,
+        "viewers": 7370,
+        "gmv": 199.7,
         "url": "https://www.tiktok.com/@findsbyrachelp1/video/7647691398971542815"
       },
       {
         "title": "Wearing topaz gem G5",
         "creator": "@findsbyrachelp1",
-        "viewers": 2360,
-        "gmv": 79.4,
+        "viewers": 2370,
+        "gmv": 143.2,
         "url": "https://www.tiktok.com/@findsbyrachelp1/video/7651006716368162078"
       }
     ]
