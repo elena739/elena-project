@@ -1,34 +1,34 @@
 {
-  "updatedAt": "2026-08-13",
+  "updatedAt": "2026-08-14",
   "products": [
     {
       "name": "CHARM TINT Blurry Base Line",
       "skus": [
-        {"color": "G5 Topaz Gem", "skuId": "1732151629945017168", "total": 2291, "available": 2291, "locked": 0, "alert": 0, "status": "ok"},
-        {"color": "G7 Pena Gem", "skuId": "1732151629945148240", "total": 225, "available": 225, "locked": 0, "alert": 0, "status": "ok"},
-        {"color": "G9 RhodiaGem", "skuId": "1732151629945279312", "total": 319, "available": 318, "locked": 1, "alert": 0, "status": "ok"},
-        {"color": "G6 Poudre Gem", "skuId": "1732151629945082704", "total": 181, "available": 181, "locked": 0, "alert": 0, "status": "ok"},
+        {"color": "G1 Quartz Gem", "skuId": "1732151629944755024", "total": 340, "available": 339, "locked": 0, "alert": 1, "status": "ok"},
         {"color": "G2 Coral Gem", "skuId": "1732151629944820560", "total": 497, "available": 497, "locked": 0, "alert": 0, "status": "ok"},
-        {"color": "G8 Bronze Gem", "skuId": "1732151629945213776", "total": 498, "available": 498, "locked": 0, "alert": 0, "status": "ok"},
-        {"color": "G10 VioletGem", "skuId": "1732151629945344848", "total": 482, "available": 482, "locked": 0, "alert": 0, "status": "ok"},
-        {"color": "G4 Garnet Gem", "skuId": "1732151629944951632", "total": 236, "available": 236, "locked": 0, "alert": 0, "status": "ok"},
         {"color": "G3 Peach Stone Gem", "skuId": "1732151629944886096", "total": 267, "available": 267, "locked": 0, "alert": 0, "status": "ok"},
-        {"color": "G1 Quartz Gem", "skuId": "1732151629944755024", "total": 340, "available": 339, "locked": 1, "alert": 0, "status": "ok"}
+        {"color": "G4 Garnet Gem", "skuId": "1732151629944951632", "total": 236, "available": 236, "locked": 0, "alert": 0, "status": "ok"},
+        {"color": "G5 Topaz Gem", "skuId": "1732151629945017168", "total": 2291, "available": 2291, "locked": 0, "alert": 0, "status": "ok"},
+        {"color": "G6 Poudre Gem", "skuId": "1732151629945082704", "total": 181, "available": 181, "locked": 0, "alert": 0, "status": "ok"},
+        {"color": "G7 Pena Gem", "skuId": "1732151629945148240", "total": 225, "available": 225, "locked": 0, "alert": 0, "status": "ok"},
+        {"color": "G8 Bronze Gem", "skuId": "1732151629945213776", "total": 498, "available": 498, "locked": 0, "alert": 0, "status": "ok"},
+        {"color": "G9 RhodiaGem", "skuId": "1732151629945279312", "total": 319, "available": 318, "locked": 0, "alert": 1, "status": "ok"},
+        {"color": "G10 VioletGem", "skuId": "1732151629945344848", "total": 482, "available": 482, "locked": 0, "alert": 0, "status": "ok"}
       ]
     },
     {
       "name": "CHARM TINT Glossy Gel Line",
       "skus": [
+        {"color": "C1 Opal Charm", "skuId": "1732151672922280784", "total": 216, "available": 216, "locked": 0, "alert": 0, "status": "ok"},
+        {"color": "C2 Water Rose Charm", "skuId": "1732151672922346320", "total": 453, "available": 453, "locked": 0, "alert": 0, "status": "ok"},
+        {"color": "C3 Ruby Charm", "skuId": "1732151672922411856", "total": 314, "available": 313, "locked": 0, "alert": 1, "status": "ok"},
+        {"color": "C4 Sun Stone Charm", "skuId": "1732151672922477392", "total": 339, "available": 339, "locked": 0, "alert": 0, "status": "ok"},
         {"color": "C5 Amber Charm", "skuId": "1732151672922542928", "total": 438, "available": 438, "locked": 0, "alert": 0, "status": "ok"},
-        {"color": "C9 Beryl Charm", "skuId": "1732151672922805072", "total": 3437, "available": 3436, "locked": 1, "alert": 0, "status": "ok"},
-        {"color": "C3 Ruby Charm", "skuId": "1732151672922411856", "total": 314, "available": 313, "locked": 1, "alert": 0, "status": "ok"},
+        {"color": "C6 Water Wood Charm", "skuId": "1732151672922608464", "total": 286, "available": 286, "locked": 0, "alert": 0, "status": "ok"},
         {"color": "C7 Spinel Charm", "skuId": "1732151672922674000", "total": 388, "available": 388, "locked": 0, "alert": 0, "status": "ok"},
         {"color": "C8 Smoky Quartz Charm", "skuId": "1732151672922739536", "total": 309, "available": 309, "locked": 0, "alert": 0, "status": "ok"},
-        {"color": "C1 Opal Charm", "skuId": "1732151672922280784", "total": 216, "available": 216, "locked": 0, "alert": 0, "status": "ok"},
-        {"color": "C10 Taaffeite Charm", "skuId": "1732151672922870608", "total": 703, "available": 703, "locked": 0, "alert": 0, "status": "ok"},
-        {"color": "C6 Water Wood Charm", "skuId": "1732151672922608464", "total": 286, "available": 286, "locked": 0, "alert": 0, "status": "ok"},
-        {"color": "C2 Water Rose Charm", "skuId": "1732151672922346320", "total": 453, "available": 453, "locked": 0, "alert": 0, "status": "ok"},
-        {"color": "C4 Sun Stone Charm", "skuId": "1732151672922477392", "total": 339, "available": 339, "locked": 0, "alert": 0, "status": "ok"}
+        {"color": "C9 Beryl Charm", "skuId": "1732151672922805072", "total": 3437, "available": 3436, "locked": 0, "alert": 1, "status": "ok"},
+        {"color": "C10 Taaffeite Charm", "skuId": "1732151672922870608", "total": 703, "available": 703, "locked": 0, "alert": 0, "status": "ok"}
       ]
     },
     {
